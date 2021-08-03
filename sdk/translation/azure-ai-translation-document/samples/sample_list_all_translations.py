@@ -24,7 +24,6 @@ USAGE:
 
 def sample_list_all_translations():
     import os
-    # [START list_all_translations]
     from azure.core.credentials import AzureKeyCredential
     from azure.ai.translation.document import DocumentTranslationClient
 
@@ -48,7 +47,6 @@ def sample_list_all_translations():
         print("{} succeeded".format(operation.documents_succeeded_count))
         print("{} cancelled\n".format(operation.documents_cancelled_count))
 
-    # [END list_all_translations]
 
 
 if __name__ == '__main__':

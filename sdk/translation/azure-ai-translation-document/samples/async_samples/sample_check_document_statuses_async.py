@@ -30,7 +30,6 @@ import asyncio
 
 
 async def sample_document_status_checks_async():
-    # [START list_all_document_statuses_async]
     import os
     from azure.core.credentials import AzureKeyCredential
     from azure.ai.translation.document.aio import DocumentTranslationClient
@@ -68,7 +67,6 @@ async def sample_document_status_checks_async():
                         ))
 
         print("\nTranslation completed.")
-    # [END list_all_document_statuses_async]
 
 
 async def main():

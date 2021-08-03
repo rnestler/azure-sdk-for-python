@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Azure Document Translation client library for Python &mdash; Azure SDK for Python 2.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/default_overrides.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/js/get_options.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="azure.ai.translation.document package" href="azure.ai.translation.document.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home" alt="Documentation Home"> Azure SDK for Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+    <a href="https://azure.github.io/azure-sdk-for-python">Return to Index</a>
+    <p class="caption" id="versionSelectorHeader" style="display: none;">
+        Package version
+    <br />
+    <select value="myValue" id="versionSelector" style="display: none;"></select>
+    <br />
+    </p>
+    <br />
+    
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="azure.ai.translation.document.html">azure.ai.translation.document package</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Azure SDK for Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Azure Document Translation client library for Python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="azure-document-translation-client-library-for-python">
+<h1>Azure Document Translation client library for Python<a class="headerlink" href="#azure-document-translation-client-library-for-python" title="Permalink to this headline">¶</a></h1>
+<p>Azure Cognitive Services Document Translation is a cloud service that translates documents to and from 90 languages
+and dialects while preserving document structure and data format. Use the client library for Document Translation to:</p>
+<ul class="simple">
+<li><p>Translate numerous, large files from an Azure Blob Storage container to a target container in your language of choice.</p></li>
+<li><p>Check the translation status and progress of each document in the translation operation.</p></li>
+<li><p>Apply a custom translation model or glossaries to tailor translation to your specific case.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/translation/azure-ai-translation-document/azure/ai/translation/document">Source code</a> | <a class="reference external" href="https://aka.ms/azsdk/python/texttranslation/pypi">Package (PyPI)</a> | <a class="reference external" href="https://aka.ms/azsdk/python/documenttranslation/docs">API reference documentation</a> | <a class="reference external" href="https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview">Product documentation</a> | <a class="reference external" href="https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/translation/azure-ai-translation-document/samples">Samples</a></p>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Python 2.7, or 3.6 or later is required to use this package.</p></li>
+<li><p>You must have an <a class="reference external" href="https://azure.microsoft.com/free/">Azure subscription</a> and a
+<a class="reference external" href="https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/get-started-with-document-translation?tabs=python">Translator resource</a> to use this package.</p></li>
+</ul>
+</div>
+<div class="section" id="install-the-package">
+<h3>Install the package<a class="headerlink" href="#install-the-package" title="Permalink to this headline">¶</a></h3>
+<p>Install the Azure Document Translation client library for Python with <a class="reference external" href="https://pypi.org/project/pip/">pip</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install azure-ai-translation-document --pre
+</pre></div>
+</div>
+<blockquote>
+<div><p>Note: This version of the client library defaults to the v1.0 version of the service</p>
+</div></blockquote>
+<div class="section" id="create-a-translator-resource">
+<h4>Create a Translator resource<a class="headerlink" href="#create-a-translator-resource" title="Permalink to this headline">¶</a></h4>
+<p>The Document Translation feature supports <a class="reference external" href="https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=singleservice%2Cwindows">single-service access</a> only.
+To access the service, create a Translator resource.</p>
+<p>You can create the resource using</p>
+<p><strong>Option 1:</strong> <a class="reference external" href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation">Azure Portal</a></p>
+<p><strong>Option 2:</strong> <a class="reference external" href="https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows">Azure CLI</a>.
+Below is an example of how you can create a Translator resource using the CLI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new resource group to hold the Translator resource -</span>
+<span class="c1"># if using an existing resource group, skip this step</span>
+az group create --name my-resource-group --location westus2
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create document translation</span>
+az cognitiveservices account create <span class="se">\</span>
+    --name document-translation-resource <span class="se">\</span>
+    --custom-domain document-translation-resource <span class="se">\</span>
+    --resource-group my-resource-group <span class="se">\</span>
+    --kind TextTranslation <span class="se">\</span>
+    --sku S1 <span class="se">\</span>
+    --location westus2 <span class="se">\</span>
+    --yes
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="authenticate-the-client">
+<h3>Authenticate the client<a class="headerlink" href="#authenticate-the-client" title="Permalink to this headline">¶</a></h3>
+<p>In order to interact with the Document Translation feature service, you will need to create an instance of a client.
+An <strong>endpoint</strong> and <strong>credential</strong> are necessary to instantiate the client object.</p>
+<div class="section" id="looking-up-the-endpoint">
+<h4>Looking up the endpoint<a class="headerlink" href="#looking-up-the-endpoint" title="Permalink to this headline">¶</a></h4>
+<p>You can find the endpoint for your Translator resource using the
+<a class="reference external" href="https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/get-started-with-document-translation?tabs=csharp#get-your-custom-domain-name-and-subscription-key">Azure Portal</a>.</p>
+<blockquote>
+<div><p>Note that the service requires a custom domain endpoint. Follow the instructions in the above link to format your endpoint:
+<a class="reference external" href="https:/">https:/</a>/{NAME-OF-YOUR-RESOURCE}.cognitiveservices.azure.com/</p>
+</div></blockquote>
+</div>
+<div class="section" id="get-the-api-key">
+<h4>Get the API key<a class="headerlink" href="#get-the-api-key" title="Permalink to this headline">¶</a></h4>
+<p>The API key can be found in the Azure Portal or by running the following Azure CLI command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">az</span> <span class="pre">cognitiveservices</span> <span class="pre">account</span> <span class="pre">keys</span> <span class="pre">list</span> <span class="pre">--name</span> <span class="pre">&quot;resource-name&quot;</span> <span class="pre">--resource-group</span> <span class="pre">&quot;resource-group-name&quot;</span></code></p>
+</div>
+<div class="section" id="create-the-client-with-azurekeycredential">
+<h4>Create the client with AzureKeyCredential<a class="headerlink" href="#create-the-client-with-azurekeycredential" title="Permalink to this headline">¶</a></h4>
+<p>To use an <a class="reference external" href="https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/get-started-with-document-translation?tabs=csharp#get-your-subscription-key">API key</a> as the <code class="docutils literal notranslate"><span class="pre">credential</span></code> parameter,
+pass the key as a string into an instance of <a class="reference external" href="https://aka.ms/azsdk/python/core/azurekeycredential">AzureKeyCredential</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">azure.core.credentials</span> <span class="kn">import</span> <span class="n">AzureKeyCredential</span>
+<span class="kn">from</span> <span class="nn">azure.ai.translation.document</span> <span class="kn">import</span> <span class="n">DocumentTranslationClient</span>
+
+<span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;https://&lt;resource-name&gt;.cognitiveservices.azure.com/&quot;</span>
+<span class="n">credential</span> <span class="o">=</span> <span class="n">AzureKeyCredential</span><span class="p">(</span><span class="s2">&quot;&lt;api_key&gt;&quot;</span><span class="p">)</span>
+<span class="n">document_translation_client</span> <span class="o">=</span> <span class="n">DocumentTranslationClient</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">credential</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-the-client-with-an-azure-active-directory-credential">
+<h4>Create the client with an Azure Active Directory credential<a class="headerlink" href="#create-the-client-with-an-azure-active-directory-credential" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">AzureKeyCredential</span></code> authentication is used in the examples in this getting started guide, but you can also
+authenticate with Azure Active Directory using the <a class="reference external" href="https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity">azure-identity</a> library.</p>
+<p>To use the <a class="reference external" href="https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential">DefaultAzureCredential</a> type shown below, or other credential types provided
+with the Azure SDK, please install the <code class="docutils literal notranslate"><span class="pre">azure-identity</span></code> package:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">azure-identity</span></code></p>
+<p>You will also need to <a class="reference external" href="https://docs.microsoft.com/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory">register a new AAD application and grant access</a> to your
+Translator resource by assigning the <code class="docutils literal notranslate"><span class="pre">&quot;Cognitive</span> <span class="pre">Services</span> <span class="pre">User&quot;</span></code> role to your service principal.</p>
+<p>Once completed, set the values of the client ID, tenant ID, and client secret of the AAD application as environment variables:
+<code class="docutils literal notranslate"><span class="pre">AZURE_CLIENT_ID</span></code>, <code class="docutils literal notranslate"><span class="pre">AZURE_TENANT_ID</span></code>, <code class="docutils literal notranslate"><span class="pre">AZURE_CLIENT_SECRET</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">azure.identity</span> <span class="kn">import</span> <span class="n">DefaultAzureCredential</span>
+<span class="kn">from</span> <span class="nn">azure.ai.translation.document</span> <span class="kn">import</span> <span class="n">DocumentTranslationClient</span>
+<span class="n">credential</span> <span class="o">=</span> <span class="n">DefaultAzureCredential</span><span class="p">()</span>
+
+<span class="n">document_translation_client</span> <span class="o">=</span> <span class="n">DocumentTranslationClient</span><span class="p">(</span>
+    <span class="n">endpoint</span><span class="o">=</span><span class="s2">&quot;https://&lt;resource-name&gt;.cognitiveservices.azure.com/&quot;</span><span class="p">,</span>
+    <span class="n">credential</span><span class="o">=</span><span class="n">credential</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="key-concepts">
+<h2>Key concepts<a class="headerlink" href="#key-concepts" title="Permalink to this headline">¶</a></h2>
+<p>The Document Translation service requires that you upload your files to an Azure Blob Storage source container and provide
+a target container where the translated documents can be written. SAS tokens to the containers (or files) are used to
+access the documents and create the translated documents in the target container. Additional information about setting this up can be found in
+the service documentation:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/get-started-with-document-translation?tabs=csharp#create-your-azure-blob-storage-containers">Set up Azure Blob Storage containers</a> with your documents</p></li>
+<li><p>Optionally apply <a class="reference external" href="https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview#supported-glossary-formats">glossaries</a> or a <a class="reference external" href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model">custom model for translation</a></p></li>
+<li><p>Generate <a class="reference external" href="https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/create-sas-tokens?tabs=Containers#create-your-sas-tokens-with-azure-storage-explorer">SAS tokens</a> to your containers (or files) with the appropriate <a class="reference external" href="https://aka.ms/azsdk/documenttranslation/sas-permissions">permissions</a></p></li>
+</ul>
+<div class="section" id="documenttranslationclient">
+<h3>DocumentTranslationClient<a class="headerlink" href="#documenttranslationclient" title="Permalink to this headline">¶</a></h3>
+<p>Interaction with the Document Translation client library begins with an instance of the <code class="docutils literal notranslate"><span class="pre">DocumentTranslationClient</span></code>.
+The client provides operations for:</p>
+<ul class="simple">
+<li><p>Creating a translation operation to translate documents in your source container(s) and write results to you target container(s).</p></li>
+<li><p>Checking the status of individual documents in the translation operation and monitoring each document’s progress.</p></li>
+<li><p>Enumerating all past and current translations operations.</p></li>
+<li><p>Identifying supported glossary and document formats.</p></li>
+</ul>
+</div>
+<div class="section" id="long-running-operations">
+<h3>Long-Running Operations<a class="headerlink" href="#long-running-operations" title="Permalink to this headline">¶</a></h3>
+<p>Long-running operations are operations which consist of an initial request sent to the service to start an operation,
+followed by polling the service at intervals to determine whether the operation has completed or failed, and if it has
+succeeded, to get the result.</p>
+<p>Methods that translate documents are modeled as long-running operations.
+The client exposes a <code class="docutils literal notranslate"><span class="pre">begin_&lt;method-name&gt;</span></code> method that returns a <code class="docutils literal notranslate"><span class="pre">DocumentTranslationLROPoller</span></code> or <code class="docutils literal notranslate"><span class="pre">AsyncDocumentTranslationLROPoller</span></code>. Callers should wait
+for the operation to complete by calling <code class="docutils literal notranslate"><span class="pre">result()</span></code> on the poller object returned from the <code class="docutils literal notranslate"><span class="pre">begin_&lt;method-name&gt;</span></code> method.
+Sample code snippets are provided to illustrate using long-running operations <span class="raw-html-m2r"><a href="#examples" title="Examples">below</a></span>.</p>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general">
+<h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
+<p>Document Translation client library will raise exceptions defined in <a class="reference external" href="https://aka.ms/azsdk/python/core/docs#module-azure.core.exceptions">Azure Core</a>.</p>
+</div>
+<div class="section" id="logging">
+<h3>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h3>
+<p>This library uses the standard
+<a class="reference external" href="https://docs.python.org/3/library/logging.html">logging</a> library for logging.</p>
+<p>Basic information about HTTP sessions (URLs, headers, etc.) is logged at <code class="docutils literal notranslate"><span class="pre">INFO</span></code> level.</p>
+<p>Detailed <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> level logging, including request/response bodies and <strong>unredacted</strong>
+headers, can be enabled on the client or per-operation with the <code class="docutils literal notranslate"><span class="pre">logging_enable</span></code> keyword argument.</p>
+<p>See full SDK logging documentation with examples <a class="reference external" href="https://docs.microsoft.com/azure/developer/python/azure-sdk-logging">here</a>.</p>
+</div>
+<div class="section" id="optional-configuration">
+<h3>Optional Configuration<a class="headerlink" href="#optional-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Optional keyword arguments can be passed in at the client and per-operation level.
+The azure-core <a class="reference external" href="https://aka.ms/azsdk/python/core/docs">reference documentation</a>
+describes available configurations for retries, logging, transport protocols, and more.</p>
+</div>
+<div class="section" id="additional-documentation">
+<h3>Additional documentation<a class="headerlink" href="#additional-documentation" title="Permalink to this headline">¶</a></h3>
+<p>For more extensive documentation on Azure Cognitive Services Document Translation, see the <a class="reference external" href="https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview">Document Translation documentation</a> on docs.microsoft.com.</p>
+</div>
+</div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<p>This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit <a class="reference external" href="https://cla.microsoft.com">cla.microsoft.com</a>.</p>
+<p>When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA.</p>
+<p>This project has adopted the <a class="reference external" href="https://opensource.microsoft.com/codeofconduct/">Microsoft Open Source Code of Conduct</a>. For more information see the <a class="reference external" href="https://opensource.microsoft.com/codeofconduct/faq/">Code of Conduct FAQ</a> or contact <a class="reference external" href="mailto:opencode&#37;&#52;&#48;microsoft&#46;com">opencode<span>&#64;</span>microsoft<span>&#46;</span>com</a> with any additional questions or comments.</p>
+<!-- LINKS --></div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="azure.ai.translation.document.html">azure.ai.translation.document package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="azure.ai.translation.document.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="azure.ai.translation.document.aio.html">azure.ai.translation.document.aio package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="azure.ai.translation.document.html" class="btn btn-neutral float-right" title="azure.ai.translation.document package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Microsoft
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-62780441-36"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62780441-36');
+</script>
+
+
+</body>
+</html>

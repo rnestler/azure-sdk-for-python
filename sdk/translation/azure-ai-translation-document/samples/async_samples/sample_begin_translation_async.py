@@ -30,7 +30,6 @@ import asyncio
 
 
 async def sample_translation_async():
-    # [START begin_translation_async]
     import os
     from azure.core.credentials import AzureKeyCredential
     from azure.ai.translation.document.aio import DocumentTranslationClient
@@ -64,7 +63,6 @@ async def sample_translation_async():
                 print("Translated to language: {}\n".format(document.translated_to))
             else:
                 print("Error Code: {}, Message: {}\n".format(document.error.code, document.error.message))
-    # [END begin_translation_async]
 
 
 async def main():

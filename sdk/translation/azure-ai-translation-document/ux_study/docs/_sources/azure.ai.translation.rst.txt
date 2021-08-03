@@ -1,0 +1,15 @@
+azure.ai.translation package
+============================
+
+.. automodule:: azure.ai.translation
+   :members:
+   :undoc-members:
+   :inherited-members:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   azure.ai.translation.document

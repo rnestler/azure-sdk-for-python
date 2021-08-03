@@ -1,0 +1,973 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>azure.ai.translation.document package &mdash; Azure SDK for Python 2.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/default_overrides.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/js/get_options.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="azure.ai.translation.document.aio package" href="azure.ai.translation.document.aio.html" />
+    <link rel="prev" title="Azure Document Translation client library for Python" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Azure SDK for Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+    <a href="https://azure.github.io/azure-sdk-for-python">Return to Index</a>
+    <p class="caption" id="versionSelectorHeader" style="display: none;">
+        Package version
+    <br />
+    <select value="myValue" id="versionSelector" style="display: none;"></select>
+    <br />
+    </p>
+    <br />
+    
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Developer Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">azure.ai.translation.document package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="azure.ai.translation.document.aio.html">azure.ai.translation.document.aio package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Azure SDK for Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>azure.ai.translation.document package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/azure.ai.translation.document.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-azure.ai.translation.document">
+<span id="azure-ai-translation-document-package"></span><h1>azure.ai.translation.document package<a class="headerlink" href="#module-azure.ai.translation.document" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="azure.ai.translation.document.DocumentStatus">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">azure.ai.translation.document.</span></code><code class="sig-name descname"><span class="pre">DocumentStatus</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/ai/translation/document/_models.html#DocumentStatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Status information about a particular document within a translation operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_document_url</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Location of the source document in the source
+container. Note that any SAS tokens are removed from this path.</p></li>
+<li><p><strong>translated_document_url</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Location of the translated document in the target
+container. Note that any SAS tokens are removed from this path.</p></li>
+<li><p><strong>created_on</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><em>datetime</em></a>) – The date time when the document was created.</p></li>
+<li><p><strong>last_updated_on</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><em>datetime</em></a>) – The date time when the document’s status was last updated.</p></li>
+<li><p><a class="reference internal" href="#azure.ai.translation.document.DocumentTranslationLROPoller.status" title="azure.ai.translation.document.DocumentTranslationLROPoller.status"><strong>status</strong></a> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – <p>Status for a document.</p>
+<ul>
+<li><p><cite>NotStarted</cite> - the document has not been translated yet.</p></li>
+<li><p><cite>Running</cite> - translation is in progress for document</p></li>
+<li><p><cite>Succeeded</cite> - translation succeeded for the document</p></li>
+<li><p><cite>Failed</cite> - the document failed to translate. Check the error property.</p></li>
+<li><p><cite>Cancelled</cite> - the operation was cancelled, the document was not translated.</p></li>
+<li><p><cite>Cancelling</cite> - the operation is cancelling, the document will not be translated.</p></li>
+</ul>
+</p></li>
+<li><p><strong>translated_to</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The language code of the language the document was translated to,
+if successful.</p></li>
+<li><p><strong>error</strong> (<a class="reference internal" href="#azure.ai.translation.document.DocumentTranslationError" title="azure.ai.translation.document.DocumentTranslationError"><em>DocumentTranslationError</em></a>) – Returned if there is an error with the particular document.
+Includes error code, message, target.</p></li>
+<li><p><strong>translation_progress</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – Progress of the translation if available.
+Value is between [0.0, 1.0].</p></li>
+<li><p><a class="reference internal" href="#azure.ai.translation.document.DocumentTranslationLROPoller.id" title="azure.ai.translation.document.DocumentTranslationLROPoller.id"><strong>id</strong></a> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Document Id.</p></li>
+<li><p><strong>characters_charged</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Characters charged for the document.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="azure.ai.translation.document.DocumentTranslationApiVersion">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">azure.ai.translation.document.</span></code><code class="sig-name descname"><span class="pre">DocumentTranslationApiVersion</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/ai/translation/document/_api_version.html#DocumentTranslationApiVersion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationApiVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Document Translation API versions supported by this package</p>
+<dl class="py attribute">
+<dt id="azure.ai.translation.document.DocumentTranslationApiVersion.V1_0">
+<code class="sig-name descname"><span class="pre">V1_0</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'1.0'</span></em><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationApiVersion.V1_0" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the default version</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="azure.ai.translation.document.DocumentTranslationClient">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">azure.ai.translation.document.</span></code><code class="sig-name descname"><span class="pre">DocumentTranslationClient</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">endpoint</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">credential</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">AzureKeyCredential</span><span class="p"><span class="pre">,</span> </span><span class="pre">TokenCredential</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/ai/translation/document/_client.html#DocumentTranslationClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>DocumentTranslationClient is your interface to the Document Translation service.
+Use the client to translate whole documents while preserving source document
+structure and text formatting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>endpoint</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Supported Document Translation endpoint (protocol and hostname, for example:
+<a class="reference external" href="https:/">https:/</a>/&lt;resource-name&gt;.cognitiveservices.azure.com/).</p></li>
+<li><p><strong>credential</strong> (<a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential" title="(in Azure SDK for Python v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">AzureKeyCredential</span></code></a> or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">TokenCredential</span></code>) – Credentials needed for the client to connect to Azure.
+This is an instance of AzureKeyCredential if using an API key or a token
+credential from <a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-identity/latest/azure.identity.html#module-azure.identity" title="(in Azure SDK for Python v2.0.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">azure.identity</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments</dt>
+<dd class="field-even"><p><strong>api_version</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em> or </em><a class="reference internal" href="#azure.ai.translation.document.DocumentTranslationApiVersion" title="azure.ai.translation.document.DocumentTranslationApiVersion"><em>DocumentTranslationApiVersion</em></a>) – The API version of the service to use for requests. It defaults to the latest service version.
+Setting to an older version may result in reduced feature compatibility.</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Creating the DocumentTranslationClient with an endpoint and API key.</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">azure.core.credentials</span> <span class="kn">import</span> <span class="n">AzureKeyCredential</span>
+<span class="kn">from</span> <span class="nn">azure.ai.translation.document</span> <span class="kn">import</span> <span class="n">DocumentTranslationClient</span>
+
+<span class="n">endpoint</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;AZURE_DOCUMENT_TRANSLATION_ENDPOINT&quot;</span><span class="p">]</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;AZURE_DOCUMENT_TRANSLATION_KEY&quot;</span><span class="p">]</span>
+
+<span class="n">document_translation_client</span> <span class="o">=</span> <span class="n">DocumentTranslationClient</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">AzureKeyCredential</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Creating the DocumentTranslationClient with a token credential.</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;DefaultAzureCredential will use the values from these environment</span>
+<span class="sd">variables: AZURE_CLIENT_ID, AZURE_TENANT_ID, AZURE_CLIENT_SECRET</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">azure.identity</span> <span class="kn">import</span> <span class="n">DefaultAzureCredential</span>
+<span class="kn">from</span> <span class="nn">azure.ai.translation.document</span> <span class="kn">import</span> <span class="n">DocumentTranslationClient</span>
+
+<span class="n">endpoint</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;AZURE_DOCUMENT_TRANSLATION_ENDPOINT&quot;</span><span class="p">]</span>
+<span class="n">credential</span> <span class="o">=</span> <span class="n">DefaultAzureCredential</span><span class="p">()</span>
+
+<span class="n">document_translation_client</span> <span class="o">=</span> <span class="n">DocumentTranslationClient</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">credential</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationClient.begin_translation">
+<code class="sig-name descname"><span class="pre">begin_translation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_language_code</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/ai/translation/document/_client.html#DocumentTranslationClient.begin_translation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationClient.begin_translation" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="sig-name descname"><span class="pre">begin_translation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Begin translating the document(s) in your source container to your target container
+in the given language. To perform a single translation from source to target, pass the <cite>source_url</cite>,
+<cite>target_url</cite>, and <cite>target_language_code</cite> parameters including any optional keyword arguments.
+To pass multiple inputs for translation, pass the <cite>inputs</cite> parameter as a list of
+<a class="reference internal" href="#azure.ai.translation.document.DocumentTranslationInput" title="azure.ai.translation.document.DocumentTranslationInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocumentTranslationInput</span></code></a>.</p>
+<p>For supported languages and document formats, see the service documentation:
+<a class="reference external" href="https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview">https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_url</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The source SAS URL to the Azure Blob container containing the documents
+to be translated. See the service documentation for the supported SAS permissions for accessing
+source storage containers/blobs: <a class="reference external" href="https://aka.ms/azsdk/documenttranslation/sas-permissions">https://aka.ms/azsdk/documenttranslation/sas-permissions</a></p></li>
+<li><p><strong>target_url</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The target SAS URL to the Azure Blob container where the translated documents
+should be written. See the service documentation for the supported SAS permissions for accessing
+target storage containers/blobs: <a class="reference external" href="https://aka.ms/azsdk/documenttranslation/sas-permissions">https://aka.ms/azsdk/documenttranslation/sas-permissions</a></p></li>
+<li><p><strong>target_language_code</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – This is the language you want your documents to be translated to.
+See supported language codes here:
+<a class="reference external" href="https://docs.microsoft.com/azure/cognitive-services/translator/language-support#translate">https://docs.microsoft.com/azure/cognitive-services/translator/language-support#translate</a></p></li>
+<li><p><strong>inputs</strong> (<em>List</em><em>[</em><a class="reference internal" href="#azure.ai.translation.document.DocumentTranslationInput" title="azure.ai.translation.document.DocumentTranslationInput"><em>DocumentTranslationInput</em></a><em>]</em>) – A list of translation inputs. Each individual input has a single
+source URL to documents and can contain multiple TranslationTargets (one for each language)
+for the destination to write translated documents.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>source_language_code</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Language code for the source documents.
+If none is specified, the source language will be auto-detected for each document.</p></li>
+<li><p><strong>prefix</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – A case-sensitive prefix string to filter documents in the source path for
+translation. For example, when using a Azure storage blob Uri, use the prefix to restrict
+sub folders for translation.</p></li>
+<li><p><strong>suffix</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – A case-sensitive suffix string to filter documents in the source path for
+translation. This is most often use for file extensions.</p></li>
+<li><p><strong>storage_type</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em> or </em><a class="reference internal" href="#azure.ai.translation.document.StorageInputType" title="azure.ai.translation.document.StorageInputType"><em>StorageInputType</em></a>) – Storage type of the input documents source string. Possible values
+include: “Folder”, “File”.</p></li>
+<li><p><strong>category_id</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Category / custom model ID for using custom translation.</p></li>
+<li><p><strong>glossaries</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>[</em><a class="reference internal" href="#azure.ai.translation.document.TranslationGlossary" title="azure.ai.translation.document.TranslationGlossary"><em>TranslationGlossary</em></a><em>]</em>) – Glossaries to apply to translation.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An instance of a DocumentTranslationLROPoller. Call <cite>result()</cite> on the poller
+object to return a pageable of DocumentStatus. A DocumentStatus will be
+returned for each translation on a document.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#azure.ai.translation.document.DocumentTranslationLROPoller" title="azure.ai.translation.document.DocumentTranslationLROPoller">DocumentTranslationLROPoller</a>[ItemPaged[<a class="reference internal" href="#azure.ai.translation.document.DocumentStatus" title="azure.ai.translation.document.DocumentStatus">DocumentStatus</a>]]</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.exceptions.HttpResponseError" title="(in Azure SDK for Python v2.0.0)"><strong>HttpResponseError</strong></a> – </p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationClient.cancel_translation">
+<code class="sig-name descname"><span class="pre">cancel_translation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">translation_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3.8/library/constants.html#None" title="(in Python v3.8)"><span class="pre">None</span></a><a class="reference internal" href="_modules/azure/ai/translation/document/_client.html#DocumentTranslationClient.cancel_translation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationClient.cancel_translation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel a currently processing or queued translation operation.</p>
+<p>A translation will not be cancelled if it is already completed, failed, or cancelling.
+All documents that have completed translation will not be cancelled and will be charged.
+If possible, all pending documents will be cancelled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>translation_id</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The translation operation ID.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.8/library/constants.html#None" title="(in Python v3.8)">None</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.exceptions.HttpResponseError" title="(in Azure SDK for Python v2.0.0)"><strong>HttpResponseError</strong></a><strong> or </strong><a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.exceptions.ResourceNotFoundError" title="(in Azure SDK for Python v2.0.0)"><strong>ResourceNotFoundError</strong></a> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationClient.close">
+<code class="sig-name descname"><span class="pre">close</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3.8/library/constants.html#None" title="(in Python v3.8)"><span class="pre">None</span></a><a class="reference internal" href="_modules/azure/ai/translation/document/_client.html#DocumentTranslationClient.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationClient.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the <a class="reference internal" href="#azure.ai.translation.document.DocumentTranslationClient" title="azure.ai.translation.document.DocumentTranslationClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocumentTranslationClient</span></code></a> session.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationClient.get_document_status">
+<code class="sig-name descname"><span class="pre">get_document_status</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">translation_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">azure.ai.translation.document._models.DocumentStatus</span><a class="reference internal" href="_modules/azure/ai/translation/document/_client.html#DocumentTranslationClient.get_document_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationClient.get_document_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the status of an individual document within a translation operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>translation_id</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The translation operation ID.</p></li>
+<li><p><strong>document_id</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The ID for the document.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A DocumentStatus with information on the status of the document.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#azure.ai.translation.document.DocumentStatus" title="azure.ai.translation.document.DocumentStatus">DocumentStatus</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.exceptions.HttpResponseError" title="(in Azure SDK for Python v2.0.0)"><strong>HttpResponseError</strong></a><strong> or </strong><a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.exceptions.ResourceNotFoundError" title="(in Azure SDK for Python v2.0.0)"><strong>ResourceNotFoundError</strong></a> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationClient.get_supported_document_formats">
+<code class="sig-name descname"><span class="pre">get_supported_document_formats</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">azure.ai.translation.document._models.FileFormat</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/azure/ai/translation/document/_client.html#DocumentTranslationClient.get_supported_document_formats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationClient.get_supported_document_formats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of the document formats supported by the Document Translation service.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of supported document formats for translation.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#azure.ai.translation.document.FileFormat" title="azure.ai.translation.document.FileFormat">FileFormat</a>]</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.exceptions.HttpResponseError" title="(in Azure SDK for Python v2.0.0)"><strong>HttpResponseError</strong></a> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationClient.get_supported_glossary_formats">
+<code class="sig-name descname"><span class="pre">get_supported_glossary_formats</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">azure.ai.translation.document._models.FileFormat</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/azure/ai/translation/document/_client.html#DocumentTranslationClient.get_supported_glossary_formats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationClient.get_supported_glossary_formats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of the glossary formats supported by the Document Translation service.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list of supported glossary formats.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#azure.ai.translation.document.FileFormat" title="azure.ai.translation.document.FileFormat">FileFormat</a>]</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.exceptions.HttpResponseError" title="(in Azure SDK for Python v2.0.0)"><strong>HttpResponseError</strong></a> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationClient.get_translation_status">
+<code class="sig-name descname"><span class="pre">get_translation_status</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">translation_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">azure.ai.translation.document._models.TranslationStatus</span><a class="reference internal" href="_modules/azure/ai/translation/document/_client.html#DocumentTranslationClient.get_translation_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationClient.get_translation_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the status of the translation operation.</p>
+<p>Includes the overall status, as well as a summary of
+the documents that are being translated as part of that translation operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>translation_id</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The translation operation ID.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A TranslationStatus with information on the status of the translation operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#azure.ai.translation.document.TranslationStatus" title="azure.ai.translation.document.TranslationStatus">TranslationStatus</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.exceptions.HttpResponseError" title="(in Azure SDK for Python v2.0.0)"><strong>HttpResponseError</strong></a><strong> or </strong><a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.exceptions.ResourceNotFoundError" title="(in Azure SDK for Python v2.0.0)"><strong>ResourceNotFoundError</strong></a> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationClient.list_all_document_statuses">
+<code class="sig-name descname"><span class="pre">list_all_document_statuses</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">translation_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">ItemPaged</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#azure.ai.translation.document.DocumentStatus" title="azure.ai.translation.document.DocumentStatus"><span class="pre">DocumentStatus</span></a><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/azure/ai/translation/document/_client.html#DocumentTranslationClient.list_all_document_statuses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationClient.list_all_document_statuses" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all the document statuses for a given translation operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>translation_id</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – ID of translation operation to list documents for.</p>
+</dd>
+<dt class="field-even">Keyword Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>top</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – the total number of documents to return (across all pages).</p></li>
+<li><p><strong>skip</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – the number of documents to skip (from beginning).
+By default, we sort by all documents descendingly by start time.</p></li>
+<li><p><strong>results_per_page</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – is the number of documents returned per page.</p></li>
+<li><p><strong>document_ids</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>]</em>) – document IDs to filter by.</p></li>
+<li><p><strong>statuses</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>]</em>) – document statuses to filter by. Options include
+‘NotStarted’, ‘Running’, ‘Succeeded’, ‘Failed’, ‘Cancelled’, ‘Cancelling’,
+and ‘ValidationFailed’.</p></li>
+<li><p><strong>created_after</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3.8/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><em>datetime.datetime</em></a><em>]</em>) – get document created after certain datetime.</p></li>
+<li><p><strong>created_before</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3.8/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><em>datetime.datetime</em></a><em>]</em>) – get document created before certain datetime.</p></li>
+<li><p><strong>order_by</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>]</em>) – the sorting query for the documents. Currently only
+‘created_on’ is supported.
+format: [“param1 asc/desc”, “param2 asc/desc”, …]
+(ex: ‘created_on asc’, ‘created_on desc’).</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A pageable of DocumentStatus.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.paging.ItemPaged" title="(in Azure SDK for Python v2.0.0)">ItemPaged</a>[<a class="reference internal" href="#azure.ai.translation.document.DocumentStatus" title="azure.ai.translation.document.DocumentStatus">DocumentStatus</a>]</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.exceptions.HttpResponseError" title="(in Azure SDK for Python v2.0.0)"><strong>HttpResponseError</strong></a> – </p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationClient.list_all_translation_statuses">
+<code class="sig-name descname"><span class="pre">list_all_translation_statuses</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">ItemPaged</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#azure.ai.translation.document.TranslationStatus" title="azure.ai.translation.document.TranslationStatus"><span class="pre">TranslationStatus</span></a><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/azure/ai/translation/document/_client.html#DocumentTranslationClient.list_all_translation_statuses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationClient.list_all_translation_statuses" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all the submitted translation operations under the Document Translation resource.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>top</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – the total number of operations to return (across all pages) from all submitted translations.</p></li>
+<li><p><strong>skip</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – the number of operations to skip (from beginning of all submitted operations).
+By default, we sort by all submitted operations descendingly by start time.</p></li>
+<li><p><strong>results_per_page</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – is the number of operations returned per page.</p></li>
+<li><p><strong>translation_ids</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>]</em>) – translation operations ids to filter by.</p></li>
+<li><p><strong>statuses</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>]</em>) – translation operation statuses to filter by. Options include
+‘NotStarted’, ‘Running’, ‘Succeeded’, ‘Failed’, ‘Cancelled’, ‘Cancelling’,
+and ‘ValidationFailed’.</p></li>
+<li><p><strong>created_after</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3.8/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><em>datetime.datetime</em></a><em>]</em>) – get operations created after certain datetime.</p></li>
+<li><p><strong>created_before</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3.8/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><em>datetime.datetime</em></a><em>]</em>) – get operations created before certain datetime.</p></li>
+<li><p><strong>order_by</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>]</em>) – the sorting query for the operations returned. Currently only
+‘created_on’ supported.
+format: [“param1 asc/desc”, “param2 asc/desc”, …]
+(ex: ‘created_on asc’, ‘created_on desc’).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A pageable of TranslationStatus.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.paging.ItemPaged" title="(in Azure SDK for Python v2.0.0)">ItemPaged</a>[<a class="reference internal" href="#azure.ai.translation.document.TranslationStatus" title="azure.ai.translation.document.TranslationStatus">TranslationStatus</a>]</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.exceptions.HttpResponseError" title="(in Azure SDK for Python v2.0.0)"><strong>HttpResponseError</strong></a> – </p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example:</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="azure.ai.translation.document.DocumentTranslationError">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">azure.ai.translation.document.</span></code><code class="sig-name descname"><span class="pre">DocumentTranslationError</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/ai/translation/document/_models.html#DocumentTranslationError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationError" title="Permalink to this definition">¶</a></dt>
+<dd><p>This contains the error code, message, and target with descriptive details on why
+a translation operation or particular document failed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3.8/library/code.html#module-code" title="(in Python v3.8)"><strong>code</strong></a> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The error code. Possible high level values include:
+“InvalidRequest”, “InvalidArgument”, “InternalServerError”, “ServiceUnavailable”,
+“ResourceNotFound”, “Unauthorized”, “RequestRateTooHigh”.</p></li>
+<li><p><strong>message</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The error message associated with the failure.</p></li>
+<li><p><strong>target</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The source of the error.
+For example it would be “documents” or “document id” in case of invalid document.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="azure.ai.translation.document.DocumentTranslationInput">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">azure.ai.translation.document.</span></code><code class="sig-name descname"><span class="pre">DocumentTranslationInput</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">azure.ai.translation.document._models.TranslationTarget</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/ai/translation/document/_models.html#DocumentTranslationInput"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input for translation. This requires that you have your source document or
+documents in an Azure Blob Storage container. Provide a SAS URL to the source file or
+source container containing the documents for translation. The source document(s) are
+translated and written to the location provided by the TranslationTargets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_url</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Required. Location of the folder / container or single file with your
+documents. See the service documentation for the supported SAS permissions for accessing
+source storage containers/blobs: <a class="reference external" href="https://aka.ms/azsdk/documenttranslation/sas-permissions">https://aka.ms/azsdk/documenttranslation/sas-permissions</a></p></li>
+<li><p><strong>targets</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>[</em><a class="reference internal" href="#azure.ai.translation.document.TranslationTarget" title="azure.ai.translation.document.TranslationTarget"><em>TranslationTarget</em></a><em>]</em>) – Required. Location of the destination for the output. This is a list of
+TranslationTargets. Note that a TranslationTarget is required for each language code specified.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>source_language_code</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Language code for the source documents.
+If none is specified, the source language will be auto-detected for each document.</p></li>
+<li><p><strong>prefix</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – A case-sensitive prefix string to filter documents in the source path for
+translation. For example, when using a Azure storage blob Uri, use the prefix to restrict
+sub folders for translation.</p></li>
+<li><p><strong>suffix</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – A case-sensitive suffix string to filter documents in the source path for
+translation. This is most often use for file extensions.</p></li>
+<li><p><strong>storage_type</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em> or </em><a class="reference internal" href="#azure.ai.translation.document.StorageInputType" title="azure.ai.translation.document.StorageInputType"><em>StorageInputType</em></a>) – Storage type of the input documents source string. Possible values
+include: “Folder”, “File”.</p></li>
+<li><p><strong>storage_source</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Storage Source. Default value: “AzureBlob”.
+Currently only “AzureBlob” is supported.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_url</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Required. Location of the folder / container or single file with your
+documents. See the service documentation for the supported SAS permissions for accessing
+source storage containers/blobs: <a class="reference external" href="https://aka.ms/azsdk/documenttranslation/sas-permissions">https://aka.ms/azsdk/documenttranslation/sas-permissions</a></p></li>
+<li><p><strong>targets</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>[</em><a class="reference internal" href="#azure.ai.translation.document.TranslationTarget" title="azure.ai.translation.document.TranslationTarget"><em>TranslationTarget</em></a><em>]</em>) – Required. Location of the destination for the output. This is a list of
+TranslationTargets. Note that a TranslationTarget is required for each language code specified.</p></li>
+<li><p><strong>source_language_code</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Language code for the source documents.
+If none is specified, the source language will be auto-detected for each document.</p></li>
+<li><p><strong>prefix</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – A case-sensitive prefix string to filter documents in the source path for
+translation. For example, when using a Azure storage blob Uri, use the prefix to restrict
+sub folders for translation.</p></li>
+<li><p><strong>suffix</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – A case-sensitive suffix string to filter documents in the source path for
+translation. This is most often use for file extensions.</p></li>
+<li><p><strong>storage_type</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em> or </em><a class="reference internal" href="#azure.ai.translation.document.StorageInputType" title="azure.ai.translation.document.StorageInputType"><em>StorageInputType</em></a>) – Storage type of the input documents source string. Possible values
+include: “Folder”, “File”.</p></li>
+<li><p><strong>storage_source</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Storage Source. Default value: “AzureBlob”.
+Currently only “AzureBlob” is supported.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="azure.ai.translation.document.DocumentTranslationLROPoller">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">azure.ai.translation.document.</span></code><code class="sig-name descname"><span class="pre">DocumentTranslationLROPoller</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_response</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deserialization_callback</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polling_method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">PollingMethod</span><span class="p"><span class="pre">[</span></span><span class="pre">PollingReturnType</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/ai/translation/document/_polling.html#DocumentTranslationLROPoller"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationLROPoller" title="Permalink to this definition">¶</a></dt>
+<dd><p>A custom poller implementation for Document Translation. Call <cite>result()</cite> on the poller to return
+a pageable of <a class="reference internal" href="#azure.ai.translation.document.DocumentStatus" title="azure.ai.translation.document.DocumentStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">DocumentStatus</span></code></a>.</p>
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationLROPoller.add_done_callback">
+<code class="sig-name descname"><span class="pre">add_done_callback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3.8/library/constants.html#None" title="(in Python v3.8)"><span class="pre">None</span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationLROPoller.add_done_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add callback function to be run once the long running operation
+has completed - regardless of the status of the operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func</strong> (<em>callable</em>) – Callback function that takes at least one
+argument, a completed LongRunningOperation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationLROPoller.continuation_token">
+<code class="sig-name descname"><span class="pre">continuation_token</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><span class="pre">str</span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationLROPoller.continuation_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a continuation token that allows to restart the poller later.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An opaque continuation token</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationLROPoller.done">
+<code class="sig-name descname"><span class="pre">done</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3.8/library/functions.html#bool" title="(in Python v3.8)"><span class="pre">bool</span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationLROPoller.done" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check status of the long running operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>‘True’ if the process has completed, else ‘False’.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.8/library/functions.html#bool" title="(in Python v3.8)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationLROPoller.from_continuation_token">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">from_continuation_token</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">polling_method</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">azure.ai.translation.document._polling.DocumentTranslationLROPollingMethod</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">continuation_token</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">azure.ai.translation.document._polling.DocumentTranslationLROPoller</span><a class="reference internal" href="_modules/azure/ai/translation/document/_polling.html#DocumentTranslationLROPoller.from_continuation_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationLROPoller.from_continuation_token" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationLROPoller.polling_method">
+<code class="sig-name descname"><span class="pre">polling_method</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">azure.core.polling._poller.PollingMethod</span><span class="p"><span class="pre">[</span></span><span class="pre">PollingReturnType</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationLROPoller.polling_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the polling method associated to this poller.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationLROPoller.remove_done_callback">
+<code class="sig-name descname"><span class="pre">remove_done_callback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3.8/library/constants.html#None" title="(in Python v3.8)"><span class="pre">None</span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationLROPoller.remove_done_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a callback from the long running operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func</strong> (<em>callable</em>) – The function to be removed from the callbacks.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.8/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if the long running operation has already completed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationLROPoller.result">
+<code class="sig-name descname"><span class="pre">result</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">PollingReturnType</span><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationLROPoller.result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the result of the long running operation, or
+the result available after the specified timeout.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The deserialized resource of the long running operation,
+if one is available.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.exceptions.HttpResponseError" title="(in Azure SDK for Python v2.0.0)"><strong>HttpResponseError</strong></a> – Server problem with the query.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationLROPoller.status">
+<code class="sig-name descname"><span class="pre">status</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><span class="pre">str</span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationLROPoller.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current status string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current status string</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationLROPoller.wait">
+<code class="sig-name descname"><span class="pre">wait</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3.8/library/constants.html#None" title="(in Python v3.8)"><span class="pre">None</span></a><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationLROPoller.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait on the long running operation for a specified length
+of time. You can check if this call as ended with timeout with the
+“done()” method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Period of time to wait for the long running
+operation to complete (in seconds).</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.exceptions.HttpResponseError" title="(in Azure SDK for Python v2.0.0)"><strong>HttpResponseError</strong></a> – Server problem with the query.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationLROPoller.details">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">details</span></code><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationLROPoller.details" title="Permalink to this definition">¶</a></dt>
+<dd><p>The details for the translation operation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#azure.ai.translation.document.TranslationStatus" title="azure.ai.translation.document.TranslationStatus">TranslationStatus</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="azure.ai.translation.document.DocumentTranslationLROPoller.id">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">id</span></code><a class="headerlink" href="#azure.ai.translation.document.DocumentTranslationLROPoller.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID for the translation operation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="azure.ai.translation.document.FileFormat">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">azure.ai.translation.document.</span></code><code class="sig-name descname"><span class="pre">FileFormat</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/ai/translation/document/_models.html#FileFormat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.FileFormat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Possible file formats supported by the Document Translation service.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_format</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Name of the format.</p></li>
+<li><p><strong>file_extensions</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>]</em>) – Supported file extension for this format.</p></li>
+<li><p><strong>content_types</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>]</em>) – Supported Content-Types for this format.</p></li>
+<li><p><strong>format_versions</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>]</em>) – Supported Version.</p></li>
+<li><p><strong>default_format_version</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Default format version if none is specified.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="azure.ai.translation.document.StorageInputType">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">azure.ai.translation.document.</span></code><code class="sig-name descname"><span class="pre">StorageInputType</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/ai/translation/document/_generated/models/_batch_document_translation_client_enums.html#StorageInputType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.StorageInputType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Storage type of the input documents source string</p>
+<dl class="py attribute">
+<dt id="azure.ai.translation.document.StorageInputType.FILE">
+<code class="sig-name descname"><span class="pre">FILE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'File'</span></em><a class="headerlink" href="#azure.ai.translation.document.StorageInputType.FILE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="azure.ai.translation.document.StorageInputType.FOLDER">
+<code class="sig-name descname"><span class="pre">FOLDER</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Folder'</span></em><a class="headerlink" href="#azure.ai.translation.document.StorageInputType.FOLDER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="azure.ai.translation.document.TranslationGlossary">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">azure.ai.translation.document.</span></code><code class="sig-name descname"><span class="pre">TranslationGlossary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">glossary_url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_format</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/ai/translation/document/_models.html#TranslationGlossary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.TranslationGlossary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Glossary / translation memory to apply to the translation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>glossary_url</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Required. Location of the glossary file. This should be a SAS URL to
+the glossary file in the storage blob container. If the translation language pair is
+not present in the glossary, it will not be applied. See the service documentation for the
+supported SAS permissions: <a class="reference external" href="https://aka.ms/azsdk/documenttranslation/sas-permissions">https://aka.ms/azsdk/documenttranslation/sas-permissions</a></p></li>
+<li><p><strong>file_format</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Required. Format of the glossary file. To see supported formats,
+call the <a class="reference internal" href="#azure.ai.translation.document.DocumentTranslationClient.get_supported_glossary_formats" title="azure.ai.translation.document.DocumentTranslationClient.get_supported_glossary_formats"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_supported_glossary_formats()</span></code></a> client method.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>format_version</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – File format version. If not specified, the service will
+use the default_version for the file format returned from the
+<a class="reference internal" href="#azure.ai.translation.document.DocumentTranslationClient.get_supported_glossary_formats" title="azure.ai.translation.document.DocumentTranslationClient.get_supported_glossary_formats"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_supported_glossary_formats()</span></code></a> client method.</p></li>
+<li><p><strong>storage_source</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Storage Source. Default value: “AzureBlob”.
+Currently only “AzureBlob” is supported.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>glossary_url</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Required. Location of the glossary file. This should be a SAS URL to
+the glossary file in the storage blob container. If the translation language pair is
+not present in the glossary, it will not be applied. See the service documentation for the
+supported SAS permissions: <a class="reference external" href="https://aka.ms/azsdk/documenttranslation/sas-permissions">https://aka.ms/azsdk/documenttranslation/sas-permissions</a></p></li>
+<li><p><strong>file_format</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Required. Format of the glossary file. To see supported formats,
+call the <a class="reference internal" href="#azure.ai.translation.document.DocumentTranslationClient.get_supported_glossary_formats" title="azure.ai.translation.document.DocumentTranslationClient.get_supported_glossary_formats"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_supported_glossary_formats()</span></code></a> client method.</p></li>
+<li><p><strong>format_version</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – File format version. If not specified, the service will
+use the default_version for the file format returned from the
+<a class="reference internal" href="#azure.ai.translation.document.DocumentTranslationClient.get_supported_glossary_formats" title="azure.ai.translation.document.DocumentTranslationClient.get_supported_glossary_formats"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_supported_glossary_formats()</span></code></a> client method.</p></li>
+<li><p><strong>storage_source</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Storage Source. Default value: “AzureBlob”.
+Currently only “AzureBlob” is supported.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="azure.ai.translation.document.TranslationStatus">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">azure.ai.translation.document.</span></code><code class="sig-name descname"><span class="pre">TranslationStatus</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/ai/translation/document/_models.html#TranslationStatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.TranslationStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Status information about the translation operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="#azure.ai.translation.document.DocumentTranslationLROPoller.id" title="azure.ai.translation.document.DocumentTranslationLROPoller.id"><strong>id</strong></a> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Id of the translation operation.</p></li>
+<li><p><strong>created_on</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><em>datetime</em></a>) – The date time when the translation operation was created.</p></li>
+<li><p><strong>last_updated_on</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><em>datetime</em></a>) – The date time when the translation operation’s status was last updated.</p></li>
+<li><p><a class="reference internal" href="#azure.ai.translation.document.DocumentTranslationLROPoller.status" title="azure.ai.translation.document.DocumentTranslationLROPoller.status"><strong>status</strong></a> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – <p>Status for a translation operation.</p>
+<ul>
+<li><p><cite>NotStarted</cite> - the operation has not begun yet.</p></li>
+<li><p><cite>Running</cite> - translation is in progress.</p></li>
+<li><p><cite>Succeeded</cite> - at least one document translated successfully within the operation.</p></li>
+<li><p><cite>Cancelled</cite> - the operation was cancelled.</p></li>
+<li><p><cite>Cancelling</cite> - the operation is being cancelled.</p></li>
+<li><p><cite>ValidationFailed</cite> - the input failed validation. E.g. there was insufficient permissions on blob containers.</p></li>
+<li><p><cite>Failed</cite> - all the documents within the operation failed.</p></li>
+</ul>
+</p></li>
+<li><p><strong>error</strong> (<a class="reference internal" href="#azure.ai.translation.document.DocumentTranslationError" title="azure.ai.translation.document.DocumentTranslationError"><em>DocumentTranslationError</em></a>) – Returned if there is an error with the translation operation.
+Includes error code, message, target.</p></li>
+<li><p><strong>documents_total_count</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of translations to be made on documents in the operation.</p></li>
+<li><p><strong>documents_failed_count</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of documents that failed translation.</p></li>
+<li><p><strong>documents_succeeded_count</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of successful translations on documents.</p></li>
+<li><p><strong>documents_in_progress_count</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of translations on documents in progress.</p></li>
+<li><p><strong>documents_not_yet_started_count</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of documents that have not yet started being translated.</p></li>
+<li><p><strong>documents_cancelled_count</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Number of documents that were cancelled for translation.</p></li>
+<li><p><strong>total_characters_charged</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – Total characters charged across all documents within the translation operation.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="azure.ai.translation.document.TranslationTarget">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">azure.ai.translation.document.</span></code><code class="sig-name descname"><span class="pre">TranslationTarget</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">language_code</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/azure/ai/translation/document/_models.html#TranslationTarget"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#azure.ai.translation.document.TranslationTarget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destination for the finished translated documents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_url</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Required. The target location for your translated documents.
+This should be a container SAS URL to your target container/blob. See the service
+documentation for the supported SAS permissions for accessing
+target storage containers/blobs: <a class="reference external" href="https://aka.ms/azsdk/documenttranslation/sas-permissions">https://aka.ms/azsdk/documenttranslation/sas-permissions</a></p></li>
+<li><p><strong>language_code</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Required. Target Language Code. This is the language
+you want your documents to be translated to. See supported languages here:
+<a class="reference external" href="https://docs.microsoft.com/azure/cognitive-services/translator/language-support#translate">https://docs.microsoft.com/azure/cognitive-services/translator/language-support#translate</a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>category_id</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Category / custom model ID for using custom translation.</p></li>
+<li><p><strong>glossaries</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>[</em><a class="reference internal" href="#azure.ai.translation.document.TranslationGlossary" title="azure.ai.translation.document.TranslationGlossary"><em>TranslationGlossary</em></a><em>]</em>) – Glossaries to apply to translation.</p></li>
+<li><p><strong>storage_source</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Storage Source. Default value: “AzureBlob”.
+Currently only “AzureBlob” is supported.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_url</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Required. The target location for your translated documents.
+This should be a container SAS URL to your target container/blob. See the service
+documentation for the supported SAS permissions for accessing
+target storage containers/blobs: <a class="reference external" href="https://aka.ms/azsdk/documenttranslation/sas-permissions">https://aka.ms/azsdk/documenttranslation/sas-permissions</a></p></li>
+<li><p><strong>language_code</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Required. Target Language Code. This is the language
+you want your documents to be translated to. See supported languages here:
+<a class="reference external" href="https://docs.microsoft.com/azure/cognitive-services/translator/language-support#translate">https://docs.microsoft.com/azure/cognitive-services/translator/language-support#translate</a></p></li>
+<li><p><strong>category_id</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Category / custom model ID for using custom translation.</p></li>
+<li><p><strong>glossaries</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>[</em><a class="reference internal" href="#azure.ai.translation.document.TranslationGlossary" title="azure.ai.translation.document.TranslationGlossary"><em>TranslationGlossary</em></a><em>]</em>) – Glossaries to apply to translation.</p></li>
+<li><p><strong>storage_source</strong> (<a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Storage Source. Default value: “AzureBlob”.
+Currently only “AzureBlob” is supported.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="azure.ai.translation.document.aio.html">azure.ai.translation.document.aio package</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="azure.ai.translation.document.aio.html" class="btn btn-neutral float-right" title="azure.ai.translation.document.aio package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Azure Document Translation client library for Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Microsoft
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-62780441-36"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62780441-36');
+</script>
+
+
+</body>
+</html>

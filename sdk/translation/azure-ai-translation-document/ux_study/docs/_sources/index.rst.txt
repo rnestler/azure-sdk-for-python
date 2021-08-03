@@ -1,0 +1,241 @@
+.. role:: raw-html-m2r(raw)
+   :format: html
+
+
+Azure Document Translation client library for Python
+====================================================
+
+Azure Cognitive Services Document Translation is a cloud service that translates documents to and from 90 languages
+and dialects while preserving document structure and data format. Use the client library for Document Translation to:
+
+
+* Translate numerous, large files from an Azure Blob Storage container to a target container in your language of choice.
+* Check the translation status and progress of each document in the translation operation.
+* Apply a custom translation model or glossaries to tailor translation to your specific case.
+
+`Source code <https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/translation/azure-ai-translation-document/azure/ai/translation/document>`_ | `Package (PyPI) <https://aka.ms/azsdk/python/texttranslation/pypi>`_ | `API reference documentation <https://aka.ms/azsdk/python/documenttranslation/docs>`_ | `Product documentation <https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview>`_ | `Samples <https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/translation/azure-ai-translation-document/samples>`_
+
+Getting started
+---------------
+
+Prerequisites
+^^^^^^^^^^^^^
+
+
+* Python 2.7, or 3.6 or later is required to use this package.
+* You must have an `Azure subscription <https://azure.microsoft.com/free/>`_ and a
+  `Translator resource <https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/get-started-with-document-translation?tabs=python>`_ to use this package.
+
+Install the package
+^^^^^^^^^^^^^^^^^^^
+
+Install the Azure Document Translation client library for Python with `pip <https://pypi.org/project/pip/>`_\ :
+
+.. code-block:: bash
+
+   pip install azure-ai-translation-document --pre
+
+..
+
+   Note: This version of the client library defaults to the v1.0 version of the service
+
+
+Create a Translator resource
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Document Translation feature supports `single-service access <https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=singleservice%2Cwindows>`_ only.
+To access the service, create a Translator resource.
+
+You can create the resource using
+
+**Option 1:** `Azure Portal <https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation>`_
+
+**Option 2:** `Azure CLI <https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows>`_.
+Below is an example of how you can create a Translator resource using the CLI:
+
+.. code-block:: bash
+
+   # Create a new resource group to hold the Translator resource -
+   # if using an existing resource group, skip this step
+   az group create --name my-resource-group --location westus2
+
+.. code-block:: bash
+
+   # Create document translation
+   az cognitiveservices account create \
+       --name document-translation-resource \
+       --custom-domain document-translation-resource \
+       --resource-group my-resource-group \
+       --kind TextTranslation \
+       --sku S1 \
+       --location westus2 \
+       --yes
+
+Authenticate the client
+^^^^^^^^^^^^^^^^^^^^^^^
+
+In order to interact with the Document Translation feature service, you will need to create an instance of a client.
+An **endpoint** and **credential** are necessary to instantiate the client object.
+
+Looking up the endpoint
+~~~~~~~~~~~~~~~~~~~~~~~
+
+You can find the endpoint for your Translator resource using the
+`Azure Portal <https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/get-started-with-document-translation?tabs=csharp#get-your-custom-domain-name-and-subscription-key>`_.
+
+..
+
+   Note that the service requires a custom domain endpoint. Follow the instructions in the above link to format your endpoint:
+   https://{NAME-OF-YOUR-RESOURCE}.cognitiveservices.azure.com/
+
+
+Get the API key
+~~~~~~~~~~~~~~~
+
+The API key can be found in the Azure Portal or by running the following Azure CLI command:
+
+``az cognitiveservices account keys list --name "resource-name" --resource-group "resource-group-name"``
+
+Create the client with AzureKeyCredential
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To use an `API key <https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/get-started-with-document-translation?tabs=csharp#get-your-subscription-key>`_ as the ``credential`` parameter,
+pass the key as a string into an instance of `AzureKeyCredential <https://aka.ms/azsdk/python/core/azurekeycredential>`_.
+
+.. code-block:: python
+
+   from azure.core.credentials import AzureKeyCredential
+   from azure.ai.translation.document import DocumentTranslationClient
+
+   endpoint = "https://<resource-name>.cognitiveservices.azure.com/"
+   credential = AzureKeyCredential("<api_key>")
+   document_translation_client = DocumentTranslationClient(endpoint, credential)
+
+Create the client with an Azure Active Directory credential
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``AzureKeyCredential`` authentication is used in the examples in this getting started guide, but you can also
+authenticate with Azure Active Directory using the `azure-identity <https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity>`_ library.
+
+To use the `DefaultAzureCredential <https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential>`_ type shown below, or other credential types provided
+with the Azure SDK, please install the ``azure-identity`` package:
+
+``pip install azure-identity``
+
+You will also need to `register a new AAD application and grant access <https://docs.microsoft.com/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory>`_ to your
+Translator resource by assigning the ``"Cognitive Services User"`` role to your service principal.
+
+Once completed, set the values of the client ID, tenant ID, and client secret of the AAD application as environment variables:
+``AZURE_CLIENT_ID``\ , ``AZURE_TENANT_ID``\ , ``AZURE_CLIENT_SECRET``.
+
+.. code-block:: python
+
+   from azure.identity import DefaultAzureCredential
+   from azure.ai.translation.document import DocumentTranslationClient
+   credential = DefaultAzureCredential()
+
+   document_translation_client = DocumentTranslationClient(
+       endpoint="https://<resource-name>.cognitiveservices.azure.com/",
+       credential=credential
+   )
+
+Key concepts
+------------
+
+The Document Translation service requires that you upload your files to an Azure Blob Storage source container and provide
+a target container where the translated documents can be written. SAS tokens to the containers (or files) are used to
+access the documents and create the translated documents in the target container. Additional information about setting this up can be found in
+the service documentation:
+
+
+* `Set up Azure Blob Storage containers <https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/get-started-with-document-translation?tabs=csharp#create-your-azure-blob-storage-containers>`_ with your documents
+* Optionally apply `glossaries <https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview#supported-glossary-formats>`_ or a `custom model for translation <https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model>`_
+* Generate `SAS tokens <https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/create-sas-tokens?tabs=Containers#create-your-sas-tokens-with-azure-storage-explorer>`_ to your containers (or files) with the appropriate `permissions <https://aka.ms/azsdk/documenttranslation/sas-permissions>`_
+
+DocumentTranslationClient
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Interaction with the Document Translation client library begins with an instance of the ``DocumentTranslationClient``.
+The client provides operations for:
+
+
+* Creating a translation operation to translate documents in your source container(s) and write results to you target container(s).
+* Checking the status of individual documents in the translation operation and monitoring each document's progress.
+* Enumerating all past and current translations operations.
+* Identifying supported glossary and document formats.
+
+Long-Running Operations
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Long-running operations are operations which consist of an initial request sent to the service to start an operation,
+followed by polling the service at intervals to determine whether the operation has completed or failed, and if it has
+succeeded, to get the result.
+
+Methods that translate documents are modeled as long-running operations.
+The client exposes a ``begin_<method-name>`` method that returns a ``DocumentTranslationLROPoller`` or ``AsyncDocumentTranslationLROPoller``. Callers should wait
+for the operation to complete by calling ``result()`` on the poller object returned from the ``begin_<method-name>`` method.
+Sample code snippets are provided to illustrate using long-running operations :raw-html-m2r:`<a href="#examples" title="Examples">below</a>`.
+
+Troubleshooting
+---------------
+
+General
+^^^^^^^
+
+Document Translation client library will raise exceptions defined in `Azure Core <https://aka.ms/azsdk/python/core/docs#module-azure.core.exceptions>`_.
+
+Logging
+^^^^^^^
+
+This library uses the standard
+`logging <https://docs.python.org/3/library/logging.html>`_ library for logging.
+
+Basic information about HTTP sessions (URLs, headers, etc.) is logged at ``INFO`` level.
+
+Detailed ``DEBUG`` level logging, including request/response bodies and **unredacted**
+headers, can be enabled on the client or per-operation with the ``logging_enable`` keyword argument.
+
+See full SDK logging documentation with examples `here <https://docs.microsoft.com/azure/developer/python/azure-sdk-logging>`_.
+
+Optional Configuration
+^^^^^^^^^^^^^^^^^^^^^^
+
+Optional keyword arguments can be passed in at the client and per-operation level.
+The azure-core `reference documentation <https://aka.ms/azsdk/python/core/docs>`_
+describes available configurations for retries, logging, transport protocols, and more.
+
+Additional documentation
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+For more extensive documentation on Azure Cognitive Services Document Translation, see the `Document Translation documentation <https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview>`_ on docs.microsoft.com.
+
+Contributing
+------------
+
+This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit `cla.microsoft.com <https://cla.microsoft.com>`_.
+
+When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA.
+
+This project has adopted the `Microsoft Open Source Code of Conduct <https://opensource.microsoft.com/codeofconduct/>`_. For more information see the `Code of Conduct FAQ <https://opensource.microsoft.com/codeofconduct/faq/>`_ or contact `opencode@microsoft.com <mailto:opencode@microsoft.com>`_ with any additional questions or comments.
+
+
+.. raw:: html
+
+   <!-- LINKS -->
+
+
+
+
+Indices and tables
+------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+.. toctree::
+  :maxdepth: 5
+  :glob:
+  :caption: Developer Documentation
+
+  azure.ai.translation.document.rst

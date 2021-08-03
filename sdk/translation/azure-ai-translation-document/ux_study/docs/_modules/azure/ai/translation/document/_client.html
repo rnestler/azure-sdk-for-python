@@ -1,0 +1,655 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>azure.ai.translation.document._client &mdash; Azure SDK for Python 2.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/default_overrides.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/js/get_options.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home" alt="Documentation Home"> Azure SDK for Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+    <a href="https://azure.github.io/azure-sdk-for-python">Return to Index</a>
+    <p class="caption" id="versionSelectorHeader" style="display: none;">
+        Package version
+    <br />
+    <select value="myValue" id="versionSelector" style="display: none;"></select>
+    <br />
+    </p>
+    <br />
+    
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../azure.ai.translation.document.html">azure.ai.translation.document package</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Azure SDK for Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>azure.ai.translation.document._client</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for azure.ai.translation.document._client</h1><div class="highlight"><pre>
+<span></span><span class="c1"># coding=utf-8</span>
+<span class="c1"># ------------------------------------</span>
+<span class="c1"># Copyright (c) Microsoft Corporation.</span>
+<span class="c1"># Licensed under the MIT License.</span>
+<span class="c1"># ------------------------------------</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">overload</span>
+<span class="kn">from</span> <span class="nn">azure.core.tracing.decorator</span> <span class="kn">import</span> <span class="n">distributed_trace</span>
+<span class="kn">from</span> <span class="nn">._generated</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">BatchDocumentTranslationClient</span> <span class="k">as</span> <span class="n">_BatchDocumentTranslationClient</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">._models</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TranslationStatus</span><span class="p">,</span>
+    <span class="n">DocumentStatus</span><span class="p">,</span>
+    <span class="n">DocumentTranslationInput</span><span class="p">,</span>
+    <span class="n">FileFormat</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">._user_agent</span> <span class="kn">import</span> <span class="n">USER_AGENT</span>
+<span class="kn">from</span> <span class="nn">._polling</span> <span class="kn">import</span> <span class="n">TranslationPolling</span><span class="p">,</span> <span class="n">DocumentTranslationLROPollingMethod</span>
+<span class="kn">from</span> <span class="nn">._helpers</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_http_logging_policy</span><span class="p">,</span>
+    <span class="n">convert_datetime</span><span class="p">,</span>
+    <span class="n">convert_order_by</span><span class="p">,</span>
+    <span class="n">get_authentication_policy</span><span class="p">,</span>
+    <span class="n">get_translation_input</span><span class="p">,</span>
+    <span class="n">POLLING_INTERVAL</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">azure.core.paging</span> <span class="kn">import</span> <span class="n">ItemPaged</span>
+    <span class="kn">from</span> <span class="nn">azure.core.credentials</span> <span class="kn">import</span> <span class="n">TokenCredential</span><span class="p">,</span> <span class="n">AzureKeyCredential</span>
+    <span class="kn">from</span> <span class="nn">._polling</span> <span class="kn">import</span> <span class="n">DocumentTranslationLROPoller</span>
+
+
+<div class="viewcode-block" id="DocumentTranslationClient"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.DocumentTranslationClient">[docs]</a><span class="k">class</span> <span class="nc">DocumentTranslationClient</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>  <span class="c1"># pylint: disable=r0205</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">credential</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (str, Union[AzureKeyCredential, TokenCredential], Any) -&gt; None</span>
+        <span class="sd">&quot;&quot;&quot;DocumentTranslationClient is your interface to the Document Translation service.</span>
+<span class="sd">        Use the client to translate whole documents while preserving source document</span>
+<span class="sd">        structure and text formatting.</span>
+
+<span class="sd">        :param str endpoint: Supported Document Translation endpoint (protocol and hostname, for example:</span>
+<span class="sd">            https://&lt;resource-name&gt;.cognitiveservices.azure.com/).</span>
+<span class="sd">        :param credential: Credentials needed for the client to connect to Azure.</span>
+<span class="sd">            This is an instance of AzureKeyCredential if using an API key or a token</span>
+<span class="sd">            credential from :mod:`azure.identity`.</span>
+<span class="sd">        :type credential: :class:`~azure.core.credentials.AzureKeyCredential` or</span>
+<span class="sd">            :class:`~azure.core.credentials.TokenCredential`</span>
+<span class="sd">        :keyword api_version:</span>
+<span class="sd">            The API version of the service to use for requests. It defaults to the latest service version.</span>
+<span class="sd">            Setting to an older version may result in reduced feature compatibility.</span>
+<span class="sd">        :paramtype api_version: str or ~azure.ai.translation.document.DocumentTranslationApiVersion</span>
+
+<span class="sd">        .. admonition:: Example:</span>
+
+<span class="sd">            .. literalinclude:: ../samples/sample_authentication.py</span>
+<span class="sd">                :start-after: [START create_dt_client_with_key]</span>
+<span class="sd">                :end-before: [END create_dt_client_with_key]</span>
+<span class="sd">                :language: python</span>
+<span class="sd">                :dedent: 4</span>
+<span class="sd">                :caption: Creating the DocumentTranslationClient with an endpoint and API key.</span>
+
+<span class="sd">            .. literalinclude:: ../samples/sample_authentication.py</span>
+<span class="sd">                :start-after: [START create_dt_client_with_aad]</span>
+<span class="sd">                :end-before: [END create_dt_client_with_aad]</span>
+<span class="sd">                :language: python</span>
+<span class="sd">                :dedent: 4</span>
+<span class="sd">                :caption: Creating the DocumentTranslationClient with a token credential.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_endpoint</span> <span class="o">=</span> <span class="n">endpoint</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_credential</span> <span class="o">=</span> <span class="n">credential</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_api_version</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;api_version&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="n">authentication_policy</span> <span class="o">=</span> <span class="n">get_authentication_policy</span><span class="p">(</span><span class="n">credential</span><span class="p">)</span>
+        <span class="n">polling_interval</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;polling_interval&quot;</span><span class="p">,</span> <span class="n">POLLING_INTERVAL</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">_BatchDocumentTranslationClient</span><span class="p">(</span>
+            <span class="n">endpoint</span><span class="o">=</span><span class="n">endpoint</span><span class="p">,</span>
+            <span class="n">credential</span><span class="o">=</span><span class="n">credential</span><span class="p">,</span>  <span class="c1"># type: ignore</span>
+            <span class="n">api_version</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_api_version</span><span class="p">,</span>
+            <span class="n">sdk_moniker</span><span class="o">=</span><span class="n">USER_AGENT</span><span class="p">,</span>
+            <span class="n">authentication_policy</span><span class="o">=</span><span class="n">authentication_policy</span><span class="p">,</span>
+            <span class="n">http_logging_policy</span><span class="o">=</span><span class="n">get_http_logging_policy</span><span class="p">(),</span>
+            <span class="n">polling_interval</span><span class="o">=</span><span class="n">polling_interval</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># type: () -&gt; DocumentTranslationClient</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="fm">__enter__</span><span class="p">()</span>  <span class="c1"># pylint:disable=no-member</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="c1"># type: (*Any) -&gt; None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>  <span class="c1"># pylint:disable=no-member</span>
+
+<div class="viewcode-block" id="DocumentTranslationClient.close"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.DocumentTranslationClient.close">[docs]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># type: () -&gt; None</span>
+        <span class="sd">&quot;&quot;&quot;Close the :class:`~azure.ai.translation.document.DocumentTranslationClient` session.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+    <span class="nd">@overload</span>
+    <span class="k">def</span> <span class="nf">begin_translation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source_url</span><span class="p">,</span> <span class="n">target_url</span><span class="p">,</span> <span class="n">target_language_code</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (str, str, str, **Any) -&gt; DocumentTranslationLROPoller[ItemPaged[DocumentStatus]]</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@overload</span>
+    <span class="k">def</span> <span class="nf">begin_translation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (List[DocumentTranslationInput], **Any) -&gt; DocumentTranslationLROPoller[ItemPaged[DocumentStatus]]</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="DocumentTranslationClient.begin_translation"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.DocumentTranslationClient.begin_translation">[docs]</a>    <span class="k">def</span> <span class="nf">begin_translation</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>  <span class="c1"># pylint: disable=client-method-missing-type-annotations</span>
+        <span class="sd">&quot;&quot;&quot;Begin translating the document(s) in your source container to your target container</span>
+<span class="sd">        in the given language. To perform a single translation from source to target, pass the `source_url`,</span>
+<span class="sd">        `target_url`, and `target_language_code` parameters including any optional keyword arguments.</span>
+<span class="sd">        To pass multiple inputs for translation, pass the `inputs` parameter as a list of</span>
+<span class="sd">        :class:`~azure.ai.translation.document.DocumentTranslationInput`.</span>
+
+<span class="sd">        For supported languages and document formats, see the service documentation:</span>
+<span class="sd">        https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview</span>
+
+<span class="sd">        :param str source_url: The source SAS URL to the Azure Blob container containing the documents</span>
+<span class="sd">            to be translated. See the service documentation for the supported SAS permissions for accessing</span>
+<span class="sd">            source storage containers/blobs: https://aka.ms/azsdk/documenttranslation/sas-permissions</span>
+<span class="sd">        :param str target_url: The target SAS URL to the Azure Blob container where the translated documents</span>
+<span class="sd">            should be written. See the service documentation for the supported SAS permissions for accessing</span>
+<span class="sd">            target storage containers/blobs: https://aka.ms/azsdk/documenttranslation/sas-permissions</span>
+<span class="sd">        :param str target_language_code: This is the language you want your documents to be translated to.</span>
+<span class="sd">            See supported language codes here:</span>
+<span class="sd">            https://docs.microsoft.com/azure/cognitive-services/translator/language-support#translate</span>
+<span class="sd">        :param inputs: A list of translation inputs. Each individual input has a single</span>
+<span class="sd">            source URL to documents and can contain multiple TranslationTargets (one for each language)</span>
+<span class="sd">            for the destination to write translated documents.</span>
+<span class="sd">        :type inputs: List[~azure.ai.translation.document.DocumentTranslationInput]</span>
+<span class="sd">        :keyword str source_language_code: Language code for the source documents.</span>
+<span class="sd">            If none is specified, the source language will be auto-detected for each document.</span>
+<span class="sd">        :keyword str prefix: A case-sensitive prefix string to filter documents in the source path for</span>
+<span class="sd">            translation. For example, when using a Azure storage blob Uri, use the prefix to restrict</span>
+<span class="sd">            sub folders for translation.</span>
+<span class="sd">        :keyword str suffix: A case-sensitive suffix string to filter documents in the source path for</span>
+<span class="sd">            translation. This is most often use for file extensions.</span>
+<span class="sd">        :keyword storage_type: Storage type of the input documents source string. Possible values</span>
+<span class="sd">            include: &quot;Folder&quot;, &quot;File&quot;.</span>
+<span class="sd">        :paramtype storage_type: str or ~azure.ai.translation.document.StorageInputType</span>
+<span class="sd">        :keyword str category_id: Category / custom model ID for using custom translation.</span>
+<span class="sd">        :keyword glossaries: Glossaries to apply to translation.</span>
+<span class="sd">        :paramtype glossaries: list[~azure.ai.translation.document.TranslationGlossary]</span>
+<span class="sd">        :return: An instance of a DocumentTranslationLROPoller. Call `result()` on the poller</span>
+<span class="sd">            object to return a pageable of DocumentStatus. A DocumentStatus will be</span>
+<span class="sd">            returned for each translation on a document.</span>
+<span class="sd">        :rtype: DocumentTranslationLROPoller[ItemPaged[~azure.ai.translation.document.DocumentStatus]]</span>
+<span class="sd">        :raises ~azure.core.exceptions.HttpResponseError:</span>
+
+<span class="sd">        .. admonition:: Example:</span>
+
+<span class="sd">            .. literalinclude:: ../samples/sample_begin_translation.py</span>
+<span class="sd">                :start-after: [START begin_translation]</span>
+<span class="sd">                :end-before: [END begin_translation]</span>
+<span class="sd">                :language: python</span>
+<span class="sd">                :dedent: 4</span>
+<span class="sd">                :caption: Translate the documents in your storage container.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">continuation_token</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;continuation_token&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">get_translation_input</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">continuation_token</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">deserialization_callback</span><span class="p">(</span>
+            <span class="n">raw_response</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">headers</span>
+        <span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
+            <span class="n">translation_status</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">raw_response</span><span class="o">.</span><span class="n">http_response</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_all_document_statuses</span><span class="p">(</span><span class="n">translation_status</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
+
+        <span class="n">polling_interval</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
+            <span class="s2">&quot;polling_interval&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">polling_interval</span><span class="p">,</span>  <span class="c1"># pylint: disable=protected-access</span>
+        <span class="p">)</span>
+
+        <span class="n">pipeline_response</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">continuation_token</span><span class="p">:</span>
+            <span class="n">pipeline_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">document_translation</span><span class="o">.</span><span class="n">get_translation_status</span><span class="p">(</span>
+                <span class="n">continuation_token</span><span class="p">,</span>
+                <span class="bp">cls</span><span class="o">=</span><span class="k">lambda</span> <span class="n">pipeline_response</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">response_headers</span><span class="p">:</span> <span class="n">pipeline_response</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="n">callback</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;cls&quot;</span><span class="p">,</span> <span class="n">deserialization_callback</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">document_translation</span><span class="o">.</span><span class="n">begin_start_translation</span><span class="p">(</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">continuation_token</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">polling</span><span class="o">=</span><span class="n">DocumentTranslationLROPollingMethod</span><span class="p">(</span>
+                <span class="n">timeout</span><span class="o">=</span><span class="n">polling_interval</span><span class="p">,</span>
+                <span class="n">lro_algorithms</span><span class="o">=</span><span class="p">[</span><span class="n">TranslationPolling</span><span class="p">()],</span>
+                <span class="n">cont_token_response</span><span class="o">=</span><span class="n">pipeline_response</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">kwargs</span>
+            <span class="p">),</span>
+            <span class="bp">cls</span><span class="o">=</span><span class="n">callback</span><span class="p">,</span>
+            <span class="n">continuation_token</span><span class="o">=</span><span class="n">continuation_token</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="DocumentTranslationClient.get_translation_status"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.DocumentTranslationClient.get_translation_status">[docs]</a>    <span class="nd">@distributed_trace</span>
+    <span class="k">def</span> <span class="nf">get_translation_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">translation_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (str, **Any) -&gt; TranslationStatus</span>
+        <span class="sd">&quot;&quot;&quot;Gets the status of the translation operation.</span>
+
+<span class="sd">        Includes the overall status, as well as a summary of</span>
+<span class="sd">        the documents that are being translated as part of that translation operation.</span>
+
+<span class="sd">        :param str translation_id: The translation operation ID.</span>
+<span class="sd">        :return: A TranslationStatus with information on the status of the translation operation.</span>
+<span class="sd">        :rtype: ~azure.ai.translation.document.TranslationStatus</span>
+<span class="sd">        :raises ~azure.core.exceptions.HttpResponseError or ~azure.core.exceptions.ResourceNotFoundError:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">translation_status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">document_translation</span><span class="o">.</span><span class="n">get_translation_status</span><span class="p">(</span>
+            <span class="n">translation_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">TranslationStatus</span><span class="o">.</span><span class="n">_from_generated</span><span class="p">(</span>  <span class="c1"># pylint: disable=protected-access</span>
+            <span class="n">translation_status</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="DocumentTranslationClient.cancel_translation"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.DocumentTranslationClient.cancel_translation">[docs]</a>    <span class="nd">@distributed_trace</span>
+    <span class="k">def</span> <span class="nf">cancel_translation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">translation_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (str, **Any) -&gt; None</span>
+        <span class="sd">&quot;&quot;&quot;Cancel a currently processing or queued translation operation.</span>
+
+<span class="sd">        A translation will not be cancelled if it is already completed, failed, or cancelling.</span>
+<span class="sd">        All documents that have completed translation will not be cancelled and will be charged.</span>
+<span class="sd">        If possible, all pending documents will be cancelled.</span>
+
+<span class="sd">        :param str translation_id: The translation operation ID.</span>
+<span class="sd">        :return: None</span>
+<span class="sd">        :rtype: None</span>
+<span class="sd">        :raises ~azure.core.exceptions.HttpResponseError or ~azure.core.exceptions.ResourceNotFoundError:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">document_translation</span><span class="o">.</span><span class="n">cancel_translation</span><span class="p">(</span><span class="n">translation_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DocumentTranslationClient.list_all_translation_statuses"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.DocumentTranslationClient.list_all_translation_statuses">[docs]</a>    <span class="nd">@distributed_trace</span>
+    <span class="k">def</span> <span class="nf">list_all_translation_statuses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (**Any) -&gt; ItemPaged[TranslationStatus]</span>
+        <span class="sd">&quot;&quot;&quot;List all the submitted translation operations under the Document Translation resource.</span>
+
+<span class="sd">        :keyword int top: the total number of operations to return (across all pages) from all submitted translations.</span>
+<span class="sd">        :keyword int skip: the number of operations to skip (from beginning of all submitted operations).</span>
+<span class="sd">            By default, we sort by all submitted operations descendingly by start time.</span>
+<span class="sd">        :keyword int results_per_page: is the number of operations returned per page.</span>
+<span class="sd">        :keyword list[str] translation_ids: translation operations ids to filter by.</span>
+<span class="sd">        :keyword list[str] statuses: translation operation statuses to filter by. Options include</span>
+<span class="sd">            &#39;NotStarted&#39;, &#39;Running&#39;, &#39;Succeeded&#39;, &#39;Failed&#39;, &#39;Cancelled&#39;, &#39;Cancelling&#39;,</span>
+<span class="sd">            and &#39;ValidationFailed&#39;.</span>
+<span class="sd">        :keyword created_after: get operations created after certain datetime.</span>
+<span class="sd">        :paramtype created_after: Union[str, datetime.datetime]</span>
+<span class="sd">        :keyword created_before: get operations created before certain datetime.</span>
+<span class="sd">        :paramtype created_before: Union[str, datetime.datetime]</span>
+<span class="sd">        :keyword list[str] order_by: the sorting query for the operations returned. Currently only</span>
+<span class="sd">            &#39;created_on&#39; supported.</span>
+<span class="sd">            format: [&quot;param1 asc/desc&quot;, &quot;param2 asc/desc&quot;, ...]</span>
+<span class="sd">            (ex: &#39;created_on asc&#39;, &#39;created_on desc&#39;).</span>
+<span class="sd">        :return: A pageable of TranslationStatus.</span>
+<span class="sd">        :rtype: ~azure.core.paging.ItemPaged[TranslationStatus]</span>
+<span class="sd">        :raises ~azure.core.exceptions.HttpResponseError:</span>
+
+<span class="sd">        .. admonition:: Example:</span>
+
+<span class="sd">            .. literalinclude:: ../samples/sample_list_all_translations.py</span>
+<span class="sd">                :start-after: [START list_all_translations]</span>
+<span class="sd">                :end-before: [END list_all_translations]</span>
+<span class="sd">                :language: python</span>
+<span class="sd">                :dedent: 4</span>
+<span class="sd">                :caption: List all submitted translations under the resource.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">order_by</span> <span class="o">=</span> <span class="n">convert_order_by</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;order_by&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+        <span class="n">created_after</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;created_after&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">created_before</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;created_before&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">created_after</span> <span class="o">=</span> <span class="n">convert_datetime</span><span class="p">(</span><span class="n">created_after</span><span class="p">)</span> <span class="k">if</span> <span class="n">created_after</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="n">created_before</span> <span class="o">=</span> <span class="n">convert_datetime</span><span class="p">(</span><span class="n">created_before</span><span class="p">)</span> <span class="k">if</span> <span class="n">created_before</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="n">results_per_page</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;results_per_page&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">translation_ids</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;translation_ids&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">_convert_from_generated_model</span><span class="p">(</span>
+            <span class="n">generated_model</span><span class="p">,</span>
+        <span class="p">):</span>  <span class="c1"># pylint: disable=protected-access</span>
+            <span class="k">return</span> <span class="n">TranslationStatus</span><span class="o">.</span><span class="n">_from_generated</span><span class="p">(</span>
+                <span class="n">generated_model</span>
+            <span class="p">)</span>  <span class="c1"># pylint: disable=protected-access</span>
+
+        <span class="n">model_conversion_function</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
+            <span class="s2">&quot;cls&quot;</span><span class="p">,</span>
+            <span class="k">lambda</span> <span class="n">translation_statuses</span><span class="p">:</span> <span class="p">[</span>
+                <span class="n">_convert_from_generated_model</span><span class="p">(</span><span class="n">status</span><span class="p">)</span> <span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">translation_statuses</span>
+            <span class="p">],</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">document_translation</span><span class="o">.</span><span class="n">get_translations_status</span><span class="p">(</span>
+            <span class="bp">cls</span><span class="o">=</span><span class="n">model_conversion_function</span><span class="p">,</span>
+            <span class="n">maxpagesize</span><span class="o">=</span><span class="n">results_per_page</span><span class="p">,</span>
+            <span class="n">created_date_time_utc_start</span><span class="o">=</span><span class="n">created_after</span><span class="p">,</span>
+            <span class="n">created_date_time_utc_end</span><span class="o">=</span><span class="n">created_before</span><span class="p">,</span>
+            <span class="n">ids</span><span class="o">=</span><span class="n">translation_ids</span><span class="p">,</span>
+            <span class="n">order_by</span><span class="o">=</span><span class="n">order_by</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="DocumentTranslationClient.list_all_document_statuses"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.DocumentTranslationClient.list_all_document_statuses">[docs]</a>    <span class="nd">@distributed_trace</span>
+    <span class="k">def</span> <span class="nf">list_all_document_statuses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">translation_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (str, **Any) -&gt; ItemPaged[DocumentStatus]</span>
+        <span class="sd">&quot;&quot;&quot;List all the document statuses for a given translation operation.</span>
+
+<span class="sd">        :param str translation_id: ID of translation operation to list documents for.</span>
+<span class="sd">        :keyword int top: the total number of documents to return (across all pages).</span>
+<span class="sd">        :keyword int skip: the number of documents to skip (from beginning).</span>
+<span class="sd">            By default, we sort by all documents descendingly by start time.</span>
+<span class="sd">        :keyword int results_per_page: is the number of documents returned per page.</span>
+<span class="sd">        :keyword list[str] document_ids: document IDs to filter by.</span>
+<span class="sd">        :keyword list[str] statuses: document statuses to filter by. Options include</span>
+<span class="sd">            &#39;NotStarted&#39;, &#39;Running&#39;, &#39;Succeeded&#39;, &#39;Failed&#39;, &#39;Cancelled&#39;, &#39;Cancelling&#39;,</span>
+<span class="sd">            and &#39;ValidationFailed&#39;.</span>
+<span class="sd">        :keyword created_after: get document created after certain datetime.</span>
+<span class="sd">        :paramtype created_after: Union[str, datetime.datetime]</span>
+<span class="sd">        :keyword created_before: get document created before certain datetime.</span>
+<span class="sd">        :paramtype created_before: Union[str, datetime.datetime]</span>
+<span class="sd">        :keyword list[str] order_by: the sorting query for the documents. Currently only</span>
+<span class="sd">            &#39;created_on&#39; is supported.</span>
+<span class="sd">            format: [&quot;param1 asc/desc&quot;, &quot;param2 asc/desc&quot;, ...]</span>
+<span class="sd">            (ex: &#39;created_on asc&#39;, &#39;created_on desc&#39;).</span>
+<span class="sd">        :return: A pageable of DocumentStatus.</span>
+<span class="sd">        :rtype: ~azure.core.paging.ItemPaged[DocumentStatus]</span>
+<span class="sd">        :raises ~azure.core.exceptions.HttpResponseError:</span>
+
+<span class="sd">        .. admonition:: Example:</span>
+
+<span class="sd">            .. literalinclude:: ../samples/sample_check_document_statuses.py</span>
+<span class="sd">                :start-after: [START list_all_document_statuses]</span>
+<span class="sd">                :end-before: [END list_all_document_statuses]</span>
+<span class="sd">                :language: python</span>
+<span class="sd">                :dedent: 4</span>
+<span class="sd">                :caption: List all the document statuses as they are being translated.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">order_by</span> <span class="o">=</span> <span class="n">convert_order_by</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;order_by&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+        <span class="n">created_after</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;created_after&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">created_before</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;created_before&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">created_after</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_datetime</span><span class="p">(</span><span class="n">created_after</span><span class="p">)</span> <span class="k">if</span> <span class="n">created_after</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="p">)</span>
+        <span class="n">created_before</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">convert_datetime</span><span class="p">(</span><span class="n">created_before</span><span class="p">)</span> <span class="k">if</span> <span class="n">created_before</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="p">)</span>
+        <span class="n">results_per_page</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;results_per_page&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">document_ids</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;document_ids&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">_convert_from_generated_model</span><span class="p">(</span><span class="n">generated_model</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">DocumentStatus</span><span class="o">.</span><span class="n">_from_generated</span><span class="p">(</span>  <span class="c1"># pylint: disable=protected-access</span>
+                <span class="n">generated_model</span>
+            <span class="p">)</span>
+
+        <span class="n">model_conversion_function</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
+            <span class="s2">&quot;cls&quot;</span><span class="p">,</span>
+            <span class="k">lambda</span> <span class="n">doc_statuses</span><span class="p">:</span> <span class="p">[</span>
+                <span class="n">_convert_from_generated_model</span><span class="p">(</span><span class="n">doc_status</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc_status</span> <span class="ow">in</span> <span class="n">doc_statuses</span>
+            <span class="p">],</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">document_translation</span><span class="o">.</span><span class="n">get_documents_status</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="n">translation_id</span><span class="p">,</span>
+            <span class="bp">cls</span><span class="o">=</span><span class="n">model_conversion_function</span><span class="p">,</span>
+            <span class="n">maxpagesize</span><span class="o">=</span><span class="n">results_per_page</span><span class="p">,</span>
+            <span class="n">created_date_time_utc_start</span><span class="o">=</span><span class="n">created_after</span><span class="p">,</span>
+            <span class="n">created_date_time_utc_end</span><span class="o">=</span><span class="n">created_before</span><span class="p">,</span>
+            <span class="n">ids</span><span class="o">=</span><span class="n">document_ids</span><span class="p">,</span>
+            <span class="n">order_by</span><span class="o">=</span><span class="n">order_by</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="DocumentTranslationClient.get_document_status"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.DocumentTranslationClient.get_document_status">[docs]</a>    <span class="nd">@distributed_trace</span>
+    <span class="k">def</span> <span class="nf">get_document_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">translation_id</span><span class="p">,</span> <span class="n">document_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (str, str, **Any) -&gt; DocumentStatus</span>
+        <span class="sd">&quot;&quot;&quot;Get the status of an individual document within a translation operation.</span>
+
+<span class="sd">        :param str translation_id: The translation operation ID.</span>
+<span class="sd">        :param str document_id: The ID for the document.</span>
+<span class="sd">        :return: A DocumentStatus with information on the status of the document.</span>
+<span class="sd">        :rtype: ~azure.ai.translation.document.DocumentStatus</span>
+<span class="sd">        :raises ~azure.core.exceptions.HttpResponseError or ~azure.core.exceptions.ResourceNotFoundError:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">document_status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">document_translation</span><span class="o">.</span><span class="n">get_document_status</span><span class="p">(</span>
+            <span class="n">translation_id</span><span class="p">,</span> <span class="n">document_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">DocumentStatus</span><span class="o">.</span><span class="n">_from_generated</span><span class="p">(</span>  <span class="c1"># pylint: disable=protected-access</span>
+            <span class="n">document_status</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="DocumentTranslationClient.get_supported_glossary_formats"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.DocumentTranslationClient.get_supported_glossary_formats">[docs]</a>    <span class="nd">@distributed_trace</span>
+    <span class="k">def</span> <span class="nf">get_supported_glossary_formats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (**Any) -&gt; List[FileFormat]</span>
+        <span class="sd">&quot;&quot;&quot;Get the list of the glossary formats supported by the Document Translation service.</span>
+
+<span class="sd">        :return: A list of supported glossary formats.</span>
+<span class="sd">        :rtype: List[FileFormat]</span>
+<span class="sd">        :raises ~azure.core.exceptions.HttpResponseError:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">glossary_formats</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">document_translation</span><span class="o">.</span><span class="n">get_supported_glossary_formats</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">FileFormat</span><span class="o">.</span><span class="n">_from_generated_list</span><span class="p">(</span>  <span class="c1"># pylint: disable=protected-access</span>
+            <span class="n">glossary_formats</span><span class="o">.</span><span class="n">value</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="DocumentTranslationClient.get_supported_document_formats"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.DocumentTranslationClient.get_supported_document_formats">[docs]</a>    <span class="nd">@distributed_trace</span>
+    <span class="k">def</span> <span class="nf">get_supported_document_formats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (**Any) -&gt; List[FileFormat]</span>
+        <span class="sd">&quot;&quot;&quot;Get the list of the document formats supported by the Document Translation service.</span>
+
+<span class="sd">        :return: A list of supported document formats for translation.</span>
+<span class="sd">        :rtype: List[FileFormat]</span>
+<span class="sd">        :raises ~azure.core.exceptions.HttpResponseError:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">document_formats</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">document_translation</span><span class="o">.</span><span class="n">get_supported_document_formats</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">FileFormat</span><span class="o">.</span><span class="n">_from_generated_list</span><span class="p">(</span>  <span class="c1"># pylint: disable=protected-access</span>
+            <span class="n">document_formats</span><span class="o">.</span><span class="n">value</span>
+        <span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Microsoft
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-62780441-36"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62780441-36');
+</script>
+
+
+</body>
+</html>

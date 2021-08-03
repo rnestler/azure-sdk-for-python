@@ -1,0 +1,741 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>azure.ai.translation.document._models &mdash; Azure SDK for Python 2.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/default_overrides.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/js/get_options.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home" alt="Documentation Home"> Azure SDK for Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+    <a href="https://azure.github.io/azure-sdk-for-python">Return to Index</a>
+    <p class="caption" id="versionSelectorHeader" style="display: none;">
+        Package version
+    <br />
+    <select value="myValue" id="versionSelector" style="display: none;"></select>
+    <br />
+    </p>
+    <br />
+    
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../azure.ai.translation.document.html">azure.ai.translation.document package</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Azure SDK for Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>azure.ai.translation.document._models</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for azure.ai.translation.document._models</h1><div class="highlight"><pre>
+<span></span><span class="c1"># coding=utf-8</span>
+<span class="c1"># ------------------------------------</span>
+<span class="c1"># Copyright (c) Microsoft Corporation.</span>
+<span class="c1"># Licensed under the MIT License.</span>
+<span class="c1"># ------------------------------------</span>
+
+<span class="c1"># pylint: disable=unused-import</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">._generated.models</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">BatchRequest</span> <span class="k">as</span> <span class="n">_BatchRequest</span><span class="p">,</span>
+    <span class="n">SourceInput</span> <span class="k">as</span> <span class="n">_SourceInput</span><span class="p">,</span>
+    <span class="n">DocumentFilter</span> <span class="k">as</span> <span class="n">_DocumentFilter</span><span class="p">,</span>
+    <span class="n">TargetInput</span> <span class="k">as</span> <span class="n">_TargetInput</span><span class="p">,</span>
+    <span class="n">Glossary</span> <span class="k">as</span> <span class="n">_Glossary</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="TranslationGlossary"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.TranslationGlossary">[docs]</a><span class="k">class</span> <span class="nc">TranslationGlossary</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>  <span class="c1"># pylint: disable=useless-object-inheritance</span>
+    <span class="sd">&quot;&quot;&quot;Glossary / translation memory to apply to the translation.</span>
+
+<span class="sd">    :param str glossary_url: Required. Location of the glossary file. This should be a SAS URL to</span>
+<span class="sd">        the glossary file in the storage blob container. If the translation language pair is</span>
+<span class="sd">        not present in the glossary, it will not be applied. See the service documentation for the</span>
+<span class="sd">        supported SAS permissions: https://aka.ms/azsdk/documenttranslation/sas-permissions</span>
+<span class="sd">    :param str file_format: Required. Format of the glossary file. To see supported formats,</span>
+<span class="sd">        call the :func:`~DocumentTranslationClient.get_supported_glossary_formats()` client method.</span>
+<span class="sd">    :keyword str format_version: File format version. If not specified, the service will</span>
+<span class="sd">        use the default_version for the file format returned from the</span>
+<span class="sd">        :func:`~DocumentTranslationClient.get_supported_glossary_formats()` client method.</span>
+<span class="sd">    :keyword str storage_source: Storage Source. Default value: &quot;AzureBlob&quot;.</span>
+<span class="sd">        Currently only &quot;AzureBlob&quot; is supported.</span>
+
+<span class="sd">    :ivar str glossary_url: Required. Location of the glossary file. This should be a SAS URL to</span>
+<span class="sd">        the glossary file in the storage blob container. If the translation language pair is</span>
+<span class="sd">        not present in the glossary, it will not be applied. See the service documentation for the</span>
+<span class="sd">        supported SAS permissions: https://aka.ms/azsdk/documenttranslation/sas-permissions</span>
+<span class="sd">    :ivar str file_format: Required. Format of the glossary file. To see supported formats,</span>
+<span class="sd">        call the :func:`~DocumentTranslationClient.get_supported_glossary_formats()` client method.</span>
+<span class="sd">    :ivar str format_version: File format version. If not specified, the service will</span>
+<span class="sd">        use the default_version for the file format returned from the</span>
+<span class="sd">        :func:`~DocumentTranslationClient.get_supported_glossary_formats()` client method.</span>
+<span class="sd">    :ivar str storage_source: Storage Source. Default value: &quot;AzureBlob&quot;.</span>
+<span class="sd">        Currently only &quot;AzureBlob&quot; is supported.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">glossary_url</span><span class="p">,</span> <span class="n">file_format</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (str, str, **Any) -&gt; None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">glossary_url</span> <span class="o">=</span> <span class="n">glossary_url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_format</span> <span class="o">=</span> <span class="n">file_format</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">format_version</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;format_version&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_source</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_source&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_to_generated</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_Glossary</span><span class="p">(</span>
+            <span class="n">glossary_url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">glossary_url</span><span class="p">,</span>
+            <span class="nb">format</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">file_format</span><span class="p">,</span>
+            <span class="n">version</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">format_version</span><span class="p">,</span>
+            <span class="n">storage_source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_source</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_to_generated_list</span><span class="p">(</span><span class="n">glossaries</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">glossary</span><span class="o">.</span><span class="n">_to_generated</span><span class="p">()</span>  <span class="c1"># pylint: disable=protected-access</span>
+            <span class="k">for</span> <span class="n">glossary</span> <span class="ow">in</span> <span class="n">glossaries</span>
+        <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="s2">&quot;TranslationGlossary(glossary_url=</span><span class="si">{}</span><span class="s2">, &quot;</span>
+            <span class="s2">&quot;file_format=</span><span class="si">{}</span><span class="s2">, format_version=</span><span class="si">{}</span><span class="s2">, storage_source=</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">glossary_url</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">file_format</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">format_version</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">storage_source</span><span class="p">,</span>
+            <span class="p">)[:</span><span class="mi">1024</span><span class="p">]</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TranslationTarget"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.TranslationTarget">[docs]</a><span class="k">class</span> <span class="nc">TranslationTarget</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>  <span class="c1"># pylint: disable=useless-object-inheritance</span>
+    <span class="sd">&quot;&quot;&quot;Destination for the finished translated documents.</span>
+
+<span class="sd">    :param str target_url: Required. The target location for your translated documents.</span>
+<span class="sd">        This should be a container SAS URL to your target container/blob. See the service</span>
+<span class="sd">        documentation for the supported SAS permissions for accessing</span>
+<span class="sd">        target storage containers/blobs: https://aka.ms/azsdk/documenttranslation/sas-permissions</span>
+<span class="sd">    :param str language_code: Required. Target Language Code. This is the language</span>
+<span class="sd">        you want your documents to be translated to. See supported languages here:</span>
+<span class="sd">        https://docs.microsoft.com/azure/cognitive-services/translator/language-support#translate</span>
+<span class="sd">    :keyword str category_id: Category / custom model ID for using custom translation.</span>
+<span class="sd">    :keyword glossaries: Glossaries to apply to translation.</span>
+<span class="sd">    :paramtype glossaries: list[~azure.ai.translation.document.TranslationGlossary]</span>
+<span class="sd">    :keyword str storage_source: Storage Source. Default value: &quot;AzureBlob&quot;.</span>
+<span class="sd">        Currently only &quot;AzureBlob&quot; is supported.</span>
+
+<span class="sd">    :ivar str target_url: Required. The target location for your translated documents.</span>
+<span class="sd">        This should be a container SAS URL to your target container/blob. See the service</span>
+<span class="sd">        documentation for the supported SAS permissions for accessing</span>
+<span class="sd">        target storage containers/blobs: https://aka.ms/azsdk/documenttranslation/sas-permissions</span>
+<span class="sd">    :ivar str language_code: Required. Target Language Code. This is the language</span>
+<span class="sd">        you want your documents to be translated to. See supported languages here:</span>
+<span class="sd">        https://docs.microsoft.com/azure/cognitive-services/translator/language-support#translate</span>
+<span class="sd">    :ivar str category_id: Category / custom model ID for using custom translation.</span>
+<span class="sd">    :ivar glossaries: Glossaries to apply to translation.</span>
+<span class="sd">    :vartype glossaries: list[~azure.ai.translation.document.TranslationGlossary]</span>
+<span class="sd">    :ivar str storage_source: Storage Source. Default value: &quot;AzureBlob&quot;.</span>
+<span class="sd">        Currently only &quot;AzureBlob&quot; is supported.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_url</span><span class="p">,</span> <span class="n">language_code</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (str, str, **Any) -&gt; None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_url</span> <span class="o">=</span> <span class="n">target_url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">language_code</span> <span class="o">=</span> <span class="n">language_code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">category_id</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;category_id&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">glossaries</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;glossaries&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_source</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_source&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_to_generated</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_TargetInput</span><span class="p">(</span>
+            <span class="n">target_url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">target_url</span><span class="p">,</span>
+            <span class="n">category</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">category_id</span><span class="p">,</span>
+            <span class="n">language</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">language_code</span><span class="p">,</span>
+            <span class="n">storage_source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_source</span><span class="p">,</span>
+            <span class="n">glossaries</span><span class="o">=</span><span class="n">TranslationGlossary</span><span class="o">.</span><span class="n">_to_generated_list</span><span class="p">(</span>  <span class="c1"># pylint: disable=protected-access</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">glossaries</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">glossaries</span>
+            <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_to_generated_list</span><span class="p">(</span><span class="n">targets</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">target</span><span class="o">.</span><span class="n">_to_generated</span><span class="p">()</span>  <span class="c1"># pylint: disable=protected-access</span>
+            <span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">targets</span>
+        <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="s2">&quot;TranslationTarget(target_url=</span><span class="si">{}</span><span class="s2">, language_code=</span><span class="si">{}</span><span class="s2">, &quot;</span>
+            <span class="s2">&quot;category_id=</span><span class="si">{}</span><span class="s2">, glossaries=</span><span class="si">{}</span><span class="s2">, storage_source=</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">target_url</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">language_code</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">category_id</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">glossaries</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">storage_source</span><span class="p">,</span>
+            <span class="p">)[:</span><span class="mi">1024</span><span class="p">]</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DocumentTranslationInput"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.DocumentTranslationInput">[docs]</a><span class="k">class</span> <span class="nc">DocumentTranslationInput</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>  <span class="c1"># pylint: disable=useless-object-inheritance</span>
+    <span class="c1"># pylint: disable=C0301</span>
+    <span class="sd">&quot;&quot;&quot;Input for translation. This requires that you have your source document or</span>
+<span class="sd">    documents in an Azure Blob Storage container. Provide a SAS URL to the source file or</span>
+<span class="sd">    source container containing the documents for translation. The source document(s) are</span>
+<span class="sd">    translated and written to the location provided by the TranslationTargets.</span>
+
+<span class="sd">    :param str source_url: Required. Location of the folder / container or single file with your</span>
+<span class="sd">        documents. See the service documentation for the supported SAS permissions for accessing</span>
+<span class="sd">        source storage containers/blobs: https://aka.ms/azsdk/documenttranslation/sas-permissions</span>
+<span class="sd">    :param targets: Required. Location of the destination for the output. This is a list of</span>
+<span class="sd">        TranslationTargets. Note that a TranslationTarget is required for each language code specified.</span>
+<span class="sd">    :type targets: list[~azure.ai.translation.document.TranslationTarget]</span>
+<span class="sd">    :keyword str source_language_code: Language code for the source documents.</span>
+<span class="sd">        If none is specified, the source language will be auto-detected for each document.</span>
+<span class="sd">    :keyword str prefix: A case-sensitive prefix string to filter documents in the source path for</span>
+<span class="sd">        translation. For example, when using a Azure storage blob Uri, use the prefix to restrict</span>
+<span class="sd">        sub folders for translation.</span>
+<span class="sd">    :keyword str suffix: A case-sensitive suffix string to filter documents in the source path for</span>
+<span class="sd">        translation. This is most often use for file extensions.</span>
+<span class="sd">    :keyword storage_type: Storage type of the input documents source string. Possible values</span>
+<span class="sd">        include: &quot;Folder&quot;, &quot;File&quot;.</span>
+<span class="sd">    :paramtype storage_type: str or ~azure.ai.translation.document.StorageInputType</span>
+<span class="sd">    :keyword str storage_source: Storage Source. Default value: &quot;AzureBlob&quot;.</span>
+<span class="sd">        Currently only &quot;AzureBlob&quot; is supported.</span>
+
+<span class="sd">    :ivar str source_url: Required. Location of the folder / container or single file with your</span>
+<span class="sd">        documents. See the service documentation for the supported SAS permissions for accessing</span>
+<span class="sd">        source storage containers/blobs: https://aka.ms/azsdk/documenttranslation/sas-permissions</span>
+<span class="sd">    :ivar targets: Required. Location of the destination for the output. This is a list of</span>
+<span class="sd">        TranslationTargets. Note that a TranslationTarget is required for each language code specified.</span>
+<span class="sd">    :vartype targets: list[~azure.ai.translation.document.TranslationTarget]</span>
+<span class="sd">    :ivar str source_language_code: Language code for the source documents.</span>
+<span class="sd">        If none is specified, the source language will be auto-detected for each document.</span>
+<span class="sd">    :ivar str prefix: A case-sensitive prefix string to filter documents in the source path for</span>
+<span class="sd">        translation. For example, when using a Azure storage blob Uri, use the prefix to restrict</span>
+<span class="sd">        sub folders for translation.</span>
+<span class="sd">    :ivar str suffix: A case-sensitive suffix string to filter documents in the source path for</span>
+<span class="sd">        translation. This is most often use for file extensions.</span>
+<span class="sd">    :ivar storage_type: Storage type of the input documents source string. Possible values</span>
+<span class="sd">        include: &quot;Folder&quot;, &quot;File&quot;.</span>
+<span class="sd">    :vartype storage_type: str or ~azure.ai.translation.document.StorageInputType</span>
+<span class="sd">    :ivar str storage_source: Storage Source. Default value: &quot;AzureBlob&quot;.</span>
+<span class="sd">        Currently only &quot;AzureBlob&quot; is supported.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source_url</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (str, List[TranslationTarget], **Any) -&gt; None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">source_url</span> <span class="o">=</span> <span class="n">source_url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">targets</span> <span class="o">=</span> <span class="n">targets</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">source_language_code</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;source_language_code&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_type</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_type&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">storage_source</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_source&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;prefix&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">suffix</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;suffix&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_to_generated</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_BatchRequest</span><span class="p">(</span>
+            <span class="n">source</span><span class="o">=</span><span class="n">_SourceInput</span><span class="p">(</span>
+                <span class="n">source_url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">source_url</span><span class="p">,</span>
+                <span class="nb">filter</span><span class="o">=</span><span class="n">_DocumentFilter</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">suffix</span><span class="p">),</span>
+                <span class="n">language</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">source_language_code</span><span class="p">,</span>
+                <span class="n">storage_source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_source</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">targets</span><span class="o">=</span><span class="n">TranslationTarget</span><span class="o">.</span><span class="n">_to_generated_list</span><span class="p">(</span>  <span class="c1"># pylint: disable=protected-access</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">targets</span>
+            <span class="p">),</span>
+            <span class="n">storage_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_type</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_to_generated_list</span><span class="p">(</span><span class="n">batch_document_inputs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">batch_document_input</span><span class="o">.</span><span class="n">_to_generated</span><span class="p">()</span>  <span class="c1"># pylint: disable=protected-access</span>
+            <span class="k">for</span> <span class="n">batch_document_input</span> <span class="ow">in</span> <span class="n">batch_document_inputs</span>
+        <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="s2">&quot;DocumentTranslationInput(source_url=</span><span class="si">{}</span><span class="s2">, targets=</span><span class="si">{}</span><span class="s2">, &quot;</span>
+            <span class="s2">&quot;source_language_code=</span><span class="si">{}</span><span class="s2">, storage_type=</span><span class="si">{}</span><span class="s2">, &quot;</span>
+            <span class="s2">&quot;storage_source=</span><span class="si">{}</span><span class="s2">, prefix=</span><span class="si">{}</span><span class="s2">, suffix=</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">source_url</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">targets</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">source_language_code</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">storage_type</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">storage_source</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">suffix</span><span class="p">,</span>
+            <span class="p">)[:</span><span class="mi">1024</span><span class="p">]</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TranslationStatus"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.TranslationStatus">[docs]</a><span class="k">class</span> <span class="nc">TranslationStatus</span><span class="p">(</span>
+    <span class="nb">object</span>
+<span class="p">):</span>  <span class="c1"># pylint: disable=useless-object-inheritance, too-many-instance-attributes</span>
+    <span class="sd">&quot;&quot;&quot;Status information about the translation operation.</span>
+
+<span class="sd">    :ivar str id: Id of the translation operation.</span>
+<span class="sd">    :ivar created_on: The date time when the translation operation was created.</span>
+<span class="sd">    :vartype created_on: ~datetime.datetime</span>
+<span class="sd">    :ivar last_updated_on: The date time when the translation operation&#39;s status was last updated.</span>
+<span class="sd">    :vartype last_updated_on: ~datetime.datetime</span>
+<span class="sd">    :ivar str status: Status for a translation operation.</span>
+
+<span class="sd">        * `NotStarted` - the operation has not begun yet.</span>
+<span class="sd">        * `Running` - translation is in progress.</span>
+<span class="sd">        * `Succeeded` - at least one document translated successfully within the operation.</span>
+<span class="sd">        * `Cancelled` - the operation was cancelled.</span>
+<span class="sd">        * `Cancelling` - the operation is being cancelled.</span>
+<span class="sd">        * `ValidationFailed` - the input failed validation. E.g. there was insufficient permissions on blob containers.</span>
+<span class="sd">        * `Failed` - all the documents within the operation failed.</span>
+
+<span class="sd">    :ivar error: Returned if there is an error with the translation operation.</span>
+<span class="sd">        Includes error code, message, target.</span>
+<span class="sd">    :vartype error: ~azure.ai.translation.document.DocumentTranslationError</span>
+<span class="sd">    :ivar int documents_total_count: Number of translations to be made on documents in the operation.</span>
+<span class="sd">    :ivar int documents_failed_count: Number of documents that failed translation.</span>
+<span class="sd">    :ivar int documents_succeeded_count: Number of successful translations on documents.</span>
+<span class="sd">    :ivar int documents_in_progress_count: Number of translations on documents in progress.</span>
+<span class="sd">    :ivar int documents_not_yet_started_count: Number of documents that have not yet started being translated.</span>
+<span class="sd">    :ivar int documents_cancelled_count: Number of documents that were cancelled for translation.</span>
+<span class="sd">    :ivar int total_characters_charged: Total characters charged across all documents within the translation operation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (**Any) -&gt; None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">created_on</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;created_on&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_updated_on</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;last_updated_on&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">documents_total_count</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;documents_total_count&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">documents_failed_count</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;documents_failed_count&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">documents_succeeded_count</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;documents_succeeded_count&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">documents_in_progress_count</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s2">&quot;documents_in_progress_count&quot;</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">documents_not_yet_started_count</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s2">&quot;documents_not_yet_started_count&quot;</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">documents_cancelled_count</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;documents_cancelled_count&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">total_characters_charged</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;total_characters_charged&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_from_generated</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">batch_status_details</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">batch_status_details</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="nb">id</span><span class="o">=</span><span class="n">batch_status_details</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="n">created_on</span><span class="o">=</span><span class="n">batch_status_details</span><span class="o">.</span><span class="n">created_date_time_utc</span><span class="p">,</span>
+            <span class="n">last_updated_on</span><span class="o">=</span><span class="n">batch_status_details</span><span class="o">.</span><span class="n">last_action_date_time_utc</span><span class="p">,</span>
+            <span class="n">status</span><span class="o">=</span><span class="n">batch_status_details</span><span class="o">.</span><span class="n">status</span><span class="p">,</span>
+            <span class="n">error</span><span class="o">=</span><span class="n">DocumentTranslationError</span><span class="o">.</span><span class="n">_from_generated</span><span class="p">(</span>  <span class="c1"># pylint: disable=protected-access</span>
+                <span class="n">batch_status_details</span><span class="o">.</span><span class="n">error</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">batch_status_details</span><span class="o">.</span><span class="n">error</span>
+            <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">documents_total_count</span><span class="o">=</span><span class="n">batch_status_details</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">total</span><span class="p">,</span>
+            <span class="n">documents_failed_count</span><span class="o">=</span><span class="n">batch_status_details</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">failed</span><span class="p">,</span>
+            <span class="n">documents_succeeded_count</span><span class="o">=</span><span class="n">batch_status_details</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">success</span><span class="p">,</span>
+            <span class="n">documents_in_progress_count</span><span class="o">=</span><span class="n">batch_status_details</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">in_progress</span><span class="p">,</span>
+            <span class="n">documents_not_yet_started_count</span><span class="o">=</span><span class="n">batch_status_details</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">not_yet_started</span><span class="p">,</span>
+            <span class="n">documents_cancelled_count</span><span class="o">=</span><span class="n">batch_status_details</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">cancelled</span><span class="p">,</span>
+            <span class="n">total_characters_charged</span><span class="o">=</span><span class="n">batch_status_details</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">total_character_charged</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="s2">&quot;TranslationStatus(id=</span><span class="si">{}</span><span class="s2">, created_on=</span><span class="si">{}</span><span class="s2">, &quot;</span>
+            <span class="s2">&quot;last_updated_on=</span><span class="si">{}</span><span class="s2">, status=</span><span class="si">{}</span><span class="s2">, error=</span><span class="si">{}</span><span class="s2">, documents_total_count=</span><span class="si">{}</span><span class="s2">, &quot;</span>
+            <span class="s2">&quot;documents_failed_count=</span><span class="si">{}</span><span class="s2">, documents_succeeded_count=</span><span class="si">{}</span><span class="s2">, &quot;</span>
+            <span class="s2">&quot;documents_in_progress_count=</span><span class="si">{}</span><span class="s2">, documents_not_yet_started_count=</span><span class="si">{}</span><span class="s2">, &quot;</span>
+            <span class="s2">&quot;documents_cancelled_count=</span><span class="si">{}</span><span class="s2">, total_characters_charged=</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">created_on</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">last_updated_on</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">documents_total_count</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">documents_failed_count</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">documents_succeeded_count</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">documents_in_progress_count</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">documents_not_yet_started_count</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">documents_cancelled_count</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">total_characters_charged</span><span class="p">,</span>
+            <span class="p">)[:</span><span class="mi">1024</span><span class="p">]</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DocumentStatus"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.DocumentStatus">[docs]</a><span class="k">class</span> <span class="nc">DocumentStatus</span><span class="p">(</span>
+    <span class="nb">object</span>
+<span class="p">):</span>  <span class="c1"># pylint: disable=useless-object-inheritance, R0903, R0902</span>
+    <span class="sd">&quot;&quot;&quot;Status information about a particular document within a translation operation.</span>
+
+<span class="sd">    :ivar str source_document_url: Location of the source document in the source</span>
+<span class="sd">        container. Note that any SAS tokens are removed from this path.</span>
+<span class="sd">    :ivar str translated_document_url: Location of the translated document in the target</span>
+<span class="sd">        container. Note that any SAS tokens are removed from this path.</span>
+<span class="sd">    :ivar created_on: The date time when the document was created.</span>
+<span class="sd">    :vartype created_on: ~datetime.datetime</span>
+<span class="sd">    :ivar last_updated_on: The date time when the document&#39;s status was last updated.</span>
+<span class="sd">    :vartype last_updated_on: ~datetime.datetime</span>
+<span class="sd">    :ivar str status: Status for a document.</span>
+
+<span class="sd">        * `NotStarted` - the document has not been translated yet.</span>
+<span class="sd">        * `Running` - translation is in progress for document</span>
+<span class="sd">        * `Succeeded` - translation succeeded for the document</span>
+<span class="sd">        * `Failed` - the document failed to translate. Check the error property.</span>
+<span class="sd">        * `Cancelled` - the operation was cancelled, the document was not translated.</span>
+<span class="sd">        * `Cancelling` - the operation is cancelling, the document will not be translated.</span>
+<span class="sd">    :ivar str translated_to: The language code of the language the document was translated to,</span>
+<span class="sd">        if successful.</span>
+<span class="sd">    :ivar error: Returned if there is an error with the particular document.</span>
+<span class="sd">        Includes error code, message, target.</span>
+<span class="sd">    :vartype error: ~azure.ai.translation.document.DocumentTranslationError</span>
+<span class="sd">    :ivar float translation_progress: Progress of the translation if available.</span>
+<span class="sd">        Value is between [0.0, 1.0].</span>
+<span class="sd">    :ivar str id: Document Id.</span>
+<span class="sd">    :ivar int characters_charged: Characters charged for the document.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (**Any) -&gt; None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">source_document_url</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;source_document_url&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">translated_document_url</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;translated_document_url&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">created_on</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;created_on&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_updated_on</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;last_updated_on&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">translated_to</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;translated_to&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">translation_progress</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;translation_progress&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">characters_charged</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;characters_charged&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_from_generated</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">doc_status</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">source_document_url</span><span class="o">=</span><span class="n">doc_status</span><span class="o">.</span><span class="n">source_path</span><span class="p">,</span>
+            <span class="n">translated_document_url</span><span class="o">=</span><span class="n">doc_status</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
+            <span class="n">created_on</span><span class="o">=</span><span class="n">doc_status</span><span class="o">.</span><span class="n">created_date_time_utc</span><span class="p">,</span>
+            <span class="n">last_updated_on</span><span class="o">=</span><span class="n">doc_status</span><span class="o">.</span><span class="n">last_action_date_time_utc</span><span class="p">,</span>
+            <span class="n">status</span><span class="o">=</span><span class="n">doc_status</span><span class="o">.</span><span class="n">status</span><span class="p">,</span>
+            <span class="n">translated_to</span><span class="o">=</span><span class="n">doc_status</span><span class="o">.</span><span class="n">to</span><span class="p">,</span>
+            <span class="n">error</span><span class="o">=</span><span class="n">DocumentTranslationError</span><span class="o">.</span><span class="n">_from_generated</span><span class="p">(</span>  <span class="c1"># pylint: disable=protected-access</span>
+                <span class="n">doc_status</span><span class="o">.</span><span class="n">error</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">doc_status</span><span class="o">.</span><span class="n">error</span>
+            <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">translation_progress</span><span class="o">=</span><span class="n">doc_status</span><span class="o">.</span><span class="n">progress</span><span class="p">,</span>
+            <span class="nb">id</span><span class="o">=</span><span class="n">doc_status</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="n">characters_charged</span><span class="o">=</span><span class="n">doc_status</span><span class="o">.</span><span class="n">character_charged</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=line-too-long</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="s2">&quot;DocumentStatus(id=</span><span class="si">{}</span><span class="s2">, source_document_url=</span><span class="si">{}</span><span class="s2">, &quot;</span>
+            <span class="s2">&quot;translated_document_url=</span><span class="si">{}</span><span class="s2">, created_on=</span><span class="si">{}</span><span class="s2">, last_updated_on=</span><span class="si">{}</span><span class="s2">, &quot;</span>
+            <span class="s2">&quot;status=</span><span class="si">{}</span><span class="s2">, translated_to=</span><span class="si">{}</span><span class="s2">, error=</span><span class="si">{}</span><span class="s2">, translation_progress=</span><span class="si">{}</span><span class="s2">, &quot;</span>
+            <span class="s2">&quot;characters_charged=</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">source_document_url</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">translated_document_url</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">created_on</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">last_updated_on</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">translated_to</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">translation_progress</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">characters_charged</span><span class="p">,</span>
+            <span class="p">)[:</span><span class="mi">1024</span><span class="p">]</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DocumentTranslationError"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.DocumentTranslationError">[docs]</a><span class="k">class</span> <span class="nc">DocumentTranslationError</span><span class="p">(</span>
+    <span class="nb">object</span>
+<span class="p">):</span>  <span class="c1"># pylint: disable=useless-object-inheritance, R0903</span>
+    <span class="sd">&quot;&quot;&quot;This contains the error code, message, and target with descriptive details on why</span>
+<span class="sd">    a translation operation or particular document failed.</span>
+
+<span class="sd">    :ivar str code: The error code. Possible high level values include:</span>
+<span class="sd">        &quot;InvalidRequest&quot;, &quot;InvalidArgument&quot;, &quot;InternalServerError&quot;, &quot;ServiceUnavailable&quot;,</span>
+<span class="sd">        &quot;ResourceNotFound&quot;, &quot;Unauthorized&quot;, &quot;RequestRateTooHigh&quot;.</span>
+<span class="sd">    :ivar str message: The error message associated with the failure.</span>
+<span class="sd">    :ivar str target: The source of the error.</span>
+<span class="sd">        For example it would be &quot;documents&quot; or &quot;document id&quot; in case of invalid document.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (**Any) -&gt; None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;code&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_from_generated</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">error</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">error</span><span class="o">.</span><span class="n">inner_error</span><span class="p">:</span>
+            <span class="n">inner_error</span> <span class="o">=</span> <span class="n">error</span><span class="o">.</span><span class="n">inner_error</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+                <span class="n">code</span><span class="o">=</span><span class="n">inner_error</span><span class="o">.</span><span class="n">code</span><span class="p">,</span>
+                <span class="n">message</span><span class="o">=</span><span class="n">inner_error</span><span class="o">.</span><span class="n">message</span><span class="p">,</span>
+                <span class="n">target</span><span class="o">=</span><span class="n">inner_error</span><span class="o">.</span><span class="n">target</span>
+                <span class="k">if</span> <span class="n">inner_error</span><span class="o">.</span><span class="n">target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="k">else</span> <span class="n">error</span><span class="o">.</span><span class="n">target</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="n">error</span><span class="o">.</span><span class="n">code</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">error</span><span class="o">.</span><span class="n">message</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">error</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;DocumentTranslationError(code=</span><span class="si">{}</span><span class="s2">, message=</span><span class="si">{}</span><span class="s2">, target=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">code</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span>
+        <span class="p">)[:</span><span class="mi">1024</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="FileFormat"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.FileFormat">[docs]</a><span class="k">class</span> <span class="nc">FileFormat</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>  <span class="c1"># pylint: disable=useless-object-inheritance, R0903</span>
+    <span class="sd">&quot;&quot;&quot;Possible file formats supported by the Document Translation service.</span>
+
+<span class="sd">    :ivar file_format: Name of the format.</span>
+<span class="sd">    :vartype file_format: str</span>
+<span class="sd">    :ivar file_extensions: Supported file extension for this format.</span>
+<span class="sd">    :vartype file_extensions: list[str]</span>
+<span class="sd">    :ivar content_types: Supported Content-Types for this format.</span>
+<span class="sd">    :vartype content_types: list[str]</span>
+<span class="sd">    :ivar format_versions: Supported Version.</span>
+<span class="sd">    :vartype format_versions: list[str]</span>
+<span class="sd">    :ivar default_format_version: Default format version if none is specified.</span>
+<span class="sd">    :vartype default_format_version: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (**Any) -&gt; None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_format</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;file_format&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_extensions</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;file_extensions&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">content_types</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content_types&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">format_versions</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;format_versions&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_format_version</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;default_format_version&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_from_generated</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">file_format</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">file_format</span><span class="o">=</span><span class="n">file_format</span><span class="o">.</span><span class="n">format</span><span class="p">,</span>
+            <span class="n">file_extensions</span><span class="o">=</span><span class="n">file_format</span><span class="o">.</span><span class="n">file_extensions</span><span class="p">,</span>
+            <span class="n">content_types</span><span class="o">=</span><span class="n">file_format</span><span class="o">.</span><span class="n">content_types</span><span class="p">,</span>
+            <span class="n">format_versions</span><span class="o">=</span><span class="n">file_format</span><span class="o">.</span><span class="n">versions</span><span class="p">,</span>
+            <span class="n">default_format_version</span><span class="o">=</span><span class="n">file_format</span><span class="o">.</span><span class="n">default_version</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_from_generated_list</span><span class="p">(</span><span class="n">file_formats</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">FileFormat</span><span class="o">.</span><span class="n">_from_generated</span><span class="p">(</span><span class="n">file_formats</span><span class="p">)</span> <span class="k">for</span> <span class="n">file_formats</span> <span class="ow">in</span> <span class="n">file_formats</span>
+        <span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=line-too-long</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="s2">&quot;FileFormat(file_format=</span><span class="si">{}</span><span class="s2">, file_extensions=</span><span class="si">{}</span><span class="s2">, &quot;</span>
+            <span class="s2">&quot;content_types=</span><span class="si">{}</span><span class="s2">, format_versions=</span><span class="si">{}</span><span class="s2">, default_format_version=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">file_format</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">file_extensions</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">content_types</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">format_versions</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">default_format_version</span><span class="p">,</span>
+            <span class="p">)[:</span><span class="mi">1024</span><span class="p">]</span>
+        <span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Microsoft
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-62780441-36"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62780441-36');
+</script>
+
+
+</body>
+</html>

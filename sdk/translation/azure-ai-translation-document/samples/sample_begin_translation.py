@@ -27,7 +27,6 @@ USAGE:
 
 
 def sample_translation():
-    # [START begin_translation]
     import os
     from azure.core.credentials import AzureKeyCredential
     from azure.ai.translation.document import DocumentTranslationClient
@@ -60,7 +59,6 @@ def sample_translation():
             print("Translated to language: {}\n".format(document.translated_to))
         else:
             print("Error Code: {}, Message: {}\n".format(document.error.code, document.error.message))
-    # [END begin_translation]
 
 
 if __name__ == '__main__':

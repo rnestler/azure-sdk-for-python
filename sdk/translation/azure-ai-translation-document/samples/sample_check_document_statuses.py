@@ -28,7 +28,6 @@ USAGE:
 
 
 def sample_document_status_checks():
-    # [START list_all_document_statuses]
     import os
     import time
     from azure.core.credentials import AzureKeyCredential
@@ -66,7 +65,6 @@ def sample_document_status_checks():
                     ))
 
     print("\nTranslation completed.")
-    # [END list_all_document_statuses]
 
 
 if __name__ == '__main__':

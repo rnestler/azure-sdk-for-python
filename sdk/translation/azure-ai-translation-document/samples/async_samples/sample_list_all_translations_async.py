@@ -26,7 +26,6 @@ import asyncio
 
 async def sample_list_all_translations_async():
     import os
-    # [START list_all_translations_async]
     from azure.core.credentials import AzureKeyCredential
     from azure.ai.translation.document.aio import DocumentTranslationClient
 
@@ -49,7 +48,6 @@ async def sample_list_all_translations_async():
             print("{} failed".format(operation.documents_failed_count))
             print("{} succeeded".format(operation.documents_succeeded_count))
             print("{} cancelled\n".format(operation.documents_cancelled_count))
-    # [END list_all_translations_async]
 
 
 async def main():

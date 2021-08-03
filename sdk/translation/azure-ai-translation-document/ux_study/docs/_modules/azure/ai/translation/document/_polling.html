@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>azure.ai.translation.document._polling &mdash; Azure SDK for Python 2.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/default_overrides.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/js/get_options.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home" alt="Documentation Home"> Azure SDK for Python
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+    <a href="https://azure.github.io/azure-sdk-for-python">Return to Index</a>
+    <p class="caption" id="versionSelectorHeader" style="display: none;">
+        Package version
+    <br />
+    <select value="myValue" id="versionSelector" style="display: none;"></select>
+    <br />
+    </p>
+    <br />
+    
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../azure.ai.translation.document.html">azure.ai.translation.document package</a></li>
+</ul>
+
+            
+          
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Azure SDK for Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>azure.ai.translation.document._polling</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for azure.ai.translation.document._polling</h1><div class="highlight"><pre>
+<span></span><span class="c1"># coding=utf-8</span>
+<span class="c1"># ------------------------------------</span>
+<span class="c1"># Copyright (c) Microsoft Corporation.</span>
+<span class="c1"># Licensed under the MIT License.</span>
+<span class="c1"># ------------------------------------</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span>
+<span class="kn">from</span> <span class="nn">azure.core.polling</span> <span class="kn">import</span> <span class="n">LROPoller</span>
+<span class="kn">from</span> <span class="nn">azure.core.polling.base_polling</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">LROBasePolling</span><span class="p">,</span>
+    <span class="n">OperationResourcePolling</span><span class="p">,</span>
+    <span class="n">_is_empty</span><span class="p">,</span>
+    <span class="n">_as_json</span><span class="p">,</span>
+    <span class="n">BadResponse</span><span class="p">,</span>
+    <span class="n">OperationFailed</span><span class="p">,</span>
+    <span class="n">_raise_if_bad_http_status_and_method</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">azure.core.exceptions</span> <span class="kn">import</span> <span class="n">HttpResponseError</span><span class="p">,</span> <span class="n">ODataV4Format</span>
+<span class="kn">from</span> <span class="nn">._generated.models</span> <span class="kn">import</span> <span class="n">TranslationStatus</span> <span class="k">as</span> <span class="n">_TranslationStatus</span>
+<span class="kn">from</span> <span class="nn">._models</span> <span class="kn">import</span> <span class="n">TranslationStatus</span>
+
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">azure.core.pipeline</span> <span class="kn">import</span> <span class="n">PipelineResponse</span>
+    <span class="kn">from</span> <span class="nn">azure.core.pipeline.transport</span> <span class="kn">import</span> <span class="p">(</span>
+        <span class="n">HttpResponse</span><span class="p">,</span>
+        <span class="n">AsyncHttpResponse</span><span class="p">,</span>
+        <span class="n">HttpRequest</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">ResponseType</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">HttpResponse</span><span class="p">,</span> <span class="n">AsyncHttpResponse</span><span class="p">]</span>
+    <span class="n">PipelineResponseType</span> <span class="o">=</span> <span class="n">PipelineResponse</span><span class="p">[</span><span class="n">HttpRequest</span><span class="p">,</span> <span class="n">ResponseType</span><span class="p">]</span>
+
+
+<span class="n">_FINISHED</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="s2">&quot;succeeded&quot;</span><span class="p">,</span> <span class="s2">&quot;cancelled&quot;</span><span class="p">,</span> <span class="s2">&quot;cancelling&quot;</span><span class="p">,</span> <span class="s2">&quot;failed&quot;</span><span class="p">])</span>
+<span class="n">_FAILED</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="s2">&quot;validationfailed&quot;</span><span class="p">])</span>
+
+
+<div class="viewcode-block" id="DocumentTranslationLROPoller"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.DocumentTranslationLROPoller">[docs]</a><span class="k">class</span> <span class="nc">DocumentTranslationLROPoller</span><span class="p">(</span><span class="n">LROPoller</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A custom poller implementation for Document Translation. Call `result()` on the poller to return</span>
+<span class="sd">    a pageable of :class:`~azure.ai.translation.document.DocumentStatus`.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># type: () -&gt; str</span>
+        <span class="sd">&quot;&quot;&quot;The ID for the translation operation</span>
+
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_polling_method</span><span class="o">.</span><span class="n">_current_body</span><span class="p">:</span>  <span class="c1"># pylint: disable=protected-access</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_polling_method</span><span class="o">.</span><span class="n">_current_body</span><span class="o">.</span><span class="n">id</span>  <span class="c1"># pylint: disable=protected-access</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_polling_method</span><span class="o">.</span><span class="n">_get_id_from_headers</span><span class="p">()</span>  <span class="c1"># pylint: disable=protected-access</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># type: () -&gt; TranslationStatus</span>
+        <span class="sd">&quot;&quot;&quot;The details for the translation operation</span>
+
+<span class="sd">        :rtype: ~azure.ai.translation.document.TranslationStatus</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">TranslationStatus</span><span class="o">.</span><span class="n">_from_generated</span><span class="p">(</span>  <span class="c1"># pylint: disable=protected-access</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_polling_method</span><span class="o">.</span><span class="n">_current_body</span>  <span class="c1"># pylint: disable=protected-access</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="DocumentTranslationLROPoller.from_continuation_token"><a class="viewcode-back" href="../../../../../azure.ai.translation.document.html#azure.ai.translation.document.DocumentTranslationLROPoller.from_continuation_token">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_continuation_token</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">polling_method</span><span class="p">,</span> <span class="n">continuation_token</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (DocumentTranslationLROPollingMethod, str, **Any) -&gt; DocumentTranslationLROPoller</span>
+
+        <span class="p">(</span>
+            <span class="n">client</span><span class="p">,</span>
+            <span class="n">initial_response</span><span class="p">,</span>
+            <span class="n">deserialization_callback</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="n">polling_method</span><span class="o">.</span><span class="n">from_continuation_token</span><span class="p">(</span><span class="n">continuation_token</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">initial_response</span><span class="p">,</span> <span class="n">deserialization_callback</span><span class="p">,</span> <span class="n">polling_method</span><span class="p">)</span></div></div>
+
+
+<span class="k">class</span> <span class="nc">DocumentTranslationLROPollingMethod</span><span class="p">(</span><span class="n">LROBasePolling</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A custom polling method implementation for Document Translation.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cont_token_response</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;cont_token_response&quot;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DocumentTranslationLROPollingMethod</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_current_body</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># type: () -&gt; _TranslationStatus</span>
+        <span class="k">return</span> <span class="n">_TranslationStatus</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pipeline_response</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_id_from_headers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># type: () -&gt; str</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_initial_response</span><span class="o">.</span><span class="n">http_response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span>
+            <span class="s2">&quot;Operation-Location&quot;</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/batches/&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">finished</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Is this polling finished?</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_finished</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">())</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_finished</span><span class="p">(</span><span class="n">status</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">):</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="n">status</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">status</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">_FINISHED</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_failed</span><span class="p">(</span><span class="n">status</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">):</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="n">status</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">status</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">_FAILED</span>
+
+    <span class="k">def</span> <span class="nf">get_continuation_token</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># type: () -&gt; str</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_body</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_body</span><span class="o">.</span><span class="n">id</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_id_from_headers</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">from_continuation_token</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">continuation_token</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># type: (str, Any) -&gt; Tuple</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">client</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;client&quot;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Need kwarg &#39;client&#39; to be recreated from continuation_token&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">deserialization_callback</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;deserialization_callback&quot;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Need kwarg &#39;deserialization_callback&#39; to be recreated from continuation_token&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cont_token_response</span><span class="p">,</span> <span class="n">deserialization_callback</span>
+
+    <span class="k">def</span> <span class="nf">_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Poll status of operation so long as operation is incomplete and</span>
+<span class="sd">        we have an endpoint to query.</span>
+
+<span class="sd">        :param callable update_cmd: The function to call to retrieve the</span>
+<span class="sd">         latest status of the long running operation.</span>
+<span class="sd">        :raises: OperationFailed if operation status &#39;Failed&#39; or &#39;Canceled&#39;.</span>
+<span class="sd">        :raises: BadStatus if response status invalid.</span>
+<span class="sd">        :raises: BadResponse if response invalid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">finished</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_delay</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_status</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_failed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">()):</span>
+            <span class="k">raise</span> <span class="n">OperationFailed</span><span class="p">(</span><span class="s2">&quot;Operation failed or canceled&quot;</span><span class="p">)</span>
+
+        <span class="n">final_get_url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_operation</span><span class="o">.</span><span class="n">get_final_get_url</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pipeline_response</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">final_get_url</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pipeline_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_status</span><span class="p">(</span><span class="n">final_get_url</span><span class="p">)</span>
+            <span class="n">_raise_if_bad_http_status_and_method</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pipeline_response</span><span class="o">.</span><span class="n">http_response</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">TranslationPolling</span><span class="p">(</span><span class="n">OperationResourcePolling</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Implements a Location polling.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">can_poll</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline_response</span><span class="p">):</span>
+        <span class="c1"># type: (PipelineResponseType) -&gt; bool</span>
+        <span class="sd">&quot;&quot;&quot;Answer if this polling method could be used.&quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">pipeline_response</span><span class="o">.</span><span class="n">http_response</span>
+        <span class="n">can_poll</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_operation_location_header</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span>
+        <span class="k">if</span> <span class="n">can_poll</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_is_empty</span><span class="p">(</span><span class="n">response</span><span class="p">):</span>
+            <span class="n">body</span> <span class="o">=</span> <span class="n">_as_json</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">status</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">_set_async_url_if_present</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="c1"># type: (ResponseType) -&gt; None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_async_url</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_operation_location_header</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_async_url</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_async_url</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">url</span>
+
+    <span class="k">def</span> <span class="nf">get_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline_response</span><span class="p">):</span>
+        <span class="c1"># type: (PipelineResponseType) -&gt; str</span>
+        <span class="sd">&quot;&quot;&quot;Process the latest status update retrieved from a &#39;location&#39; header.</span>
+
+<span class="sd">        :param azure.core.pipeline.PipelineResponse pipeline_response: latest REST call response.</span>
+<span class="sd">        :raises: BadResponse if response has no body and not status 202.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">pipeline_response</span><span class="o">.</span><span class="n">http_response</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_is_empty</span><span class="p">(</span><span class="n">response</span><span class="p">):</span>
+            <span class="n">body</span> <span class="o">=</span> <span class="n">_as_json</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">status</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_map_nonstandard_statuses</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">BadResponse</span><span class="p">(</span><span class="s2">&quot;No status found in body&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">BadResponse</span><span class="p">(</span>
+            <span class="s2">&quot;The response from long running operation does not contain a body.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># pylint: disable=R0201</span>
+    <span class="k">def</span> <span class="nf">_map_nonstandard_statuses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+        <span class="c1"># type: (str, dict) -&gt; str</span>
+        <span class="sd">&quot;&quot;&quot;Map non-standard statuses.</span>
+
+<span class="sd">        :param str status: lro process status.</span>
+<span class="sd">        :param str body: pipeline response body.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;ValidationFailed&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">raise_error</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">status</span>
+
+    <span class="k">def</span> <span class="nf">raise_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="n">body</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">body</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;innerError&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="n">body</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">][</span><span class="s2">&quot;innerError&quot;</span><span class="p">]</span>
+        <span class="n">http_response_error</span> <span class="o">=</span> <span class="n">HttpResponseError</span><span class="p">(</span>
+            <span class="n">message</span><span class="o">=</span><span class="s2">&quot;(</span><span class="si">{}</span><span class="s2">): </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">error</span><span class="p">[</span><span class="s2">&quot;code&quot;</span><span class="p">],</span> <span class="n">error</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">])</span>
+        <span class="p">)</span>
+        <span class="n">http_response_error</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">ODataV4Format</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>  <span class="c1"># set error.code</span>
+        <span class="k">raise</span> <span class="n">http_response_error</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Microsoft
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-62780441-36"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62780441-36');
+</script>
+
+
+</body>
+</html>
